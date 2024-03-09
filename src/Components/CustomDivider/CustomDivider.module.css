@@ -1,0 +1,15 @@
+.customDividerStyle {
+	text-transform: uppercase;
+	font-weight: bold !important;
+	color: rgb(196, 193, 193) !important;
+}
+
+.customDividerStyle::before {
+	content: "";
+	border-block-start: 3px solid rgba(5, 5, 5, 0.06) !important;
+}
+
+.customDividerStyle::after {
+	content: "";
+	border-block-start: 3px solid rgba(5, 5, 5, 0.06) !important;
+}
