@@ -20,10 +20,10 @@ export const CustomDrawer: FC<PropsWithChildren<DrawerType>> = ({
 		<>
 			<Drawer
 				closable={true}
-				maskClosable={false}
-				open={false}
+				maskClosable={true}
+				open={true}
 				placement={placement}
-				// styles={{ mask: { opacity: "0" } }}
+				styles={{ mask: { opacity: "0" } }}
 				title={title}
 				width={width}
 			>
