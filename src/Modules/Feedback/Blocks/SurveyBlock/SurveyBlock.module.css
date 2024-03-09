@@ -1,0 +1,62 @@
+.surveyBlockContainer {
+	border: 1px solid red;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 40px 0;
+	background-color: white;
+}
+
+.surveyBlockContainer > div {
+	margin-bottom: 2rem;
+	width: 100%;
+}
+
+.pageTitle {
+	font-size: 1.2rem;
+	color: rgb(225, 219, 219);
+	font-weight: 600;
+	text-align: center;
+	background-color: rgb(135, 138, 138);
+	padding: 0.8rem 0;
+	border-bottom: 3px solid rgb(82, 77, 77);
+	flex-basis: 5%;
+}
+
+.editIcon {
+	color: rgb(59, 59, 182);
+	margin-left: 0.5rem;
+}
+
+.fileUploadContainer {
+	flex-basis: 25%;
+	min-height: 13rem;
+}
+
+.dragAndDropContainer {
+	padding: 0 1.5rem;
+}
+
+.submitBtn {
+	text-align: center;
+}
+
+.cardListContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 8rem;
+	border: 2px dashed gray;
+	border-radius: 5px;
+}
+
+.emptyCardListMsg {
+	width: 35%;
+	text-align: center;
+	font-size: 1.2rem;
+	color: rgb(141, 137, 137);
+	font-weight: 600;
+}

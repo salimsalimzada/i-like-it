@@ -10,7 +10,7 @@ const Widget = () => {
 		<Fragment>
 			<Layout>
 				<Row gutter={[16, 24]}>
-					<Col span={5}>
+					<Col span={6}>
 						<CustomDrawer
 							iconPosition="right"
 							placement="left"
@@ -20,11 +20,11 @@ const Widget = () => {
 							<FeedbackTemplate />
 						</CustomDrawer>
 					</Col>
-					<Col span={14}>
+					<Col span={12}>
 						<SurveyBlock />
 					</Col>
 					<Col
-						span={5}
+						span={6}
 						style={{ backgroundColor: "orange", height: "100vh" }}
 					></Col>
 				</Row>
