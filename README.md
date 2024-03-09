@@ -6,3 +6,4 @@ I need to write some more here
 
 - Docker
 - precommit
+- aliases for folder/file

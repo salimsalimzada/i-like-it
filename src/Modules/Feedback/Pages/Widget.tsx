@@ -1,23 +1,34 @@
-import { Col, Row } from "antd";
+import { Col, Layout, Row } from "antd";
 import { Fragment } from "react/jsx-runtime";
+
+import { CustomDrawer } from "../../../Components/CustomDrawer";
+import { FeedbackTemplate } from "../Blocks/FeedbackTemplate";
+import { SurveyBlock } from "../Blocks/SurveyBlock";
 
 const Widget = () => {
 	return (
 		<Fragment>
-			<Row>
-				<Col
-					span={6}
-					style={{ backgroundColor: "rebeccapurple", height: "100vh" }}
-				></Col>
-				<Col
-					span={12}
-					style={{ backgroundColor: "green", height: "100vh" }}
-				></Col>
-				<Col
-					span={6}
-					style={{ backgroundColor: "orange", height: "100vh" }}
-				></Col>
-			</Row>
+			<Layout>
+				<Row gutter={[16, 24]}>
+					<Col span={5}>
+						<CustomDrawer
+							iconPosition="right"
+							placement="left"
+							title="Feedback template"
+							width={"400px"}
+						>
+							<FeedbackTemplate />
+						</CustomDrawer>
+					</Col>
+					<Col span={14}>
+						<SurveyBlock />
+					</Col>
+					<Col
+						span={5}
+						style={{ backgroundColor: "orange", height: "100vh" }}
+					></Col>
+				</Row>
+			</Layout>
 		</Fragment>
 	);
 };
