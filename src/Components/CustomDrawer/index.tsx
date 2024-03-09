@@ -1,5 +1,5 @@
-import { Button, Drawer, DrawerProps } from "antd";
-import { Children, FC, PropsWithChildren, useState } from "react";
+import { Drawer, DrawerProps } from "antd";
+import { FC, PropsWithChildren } from "react";
 
 import styles from "./CustomDrawer.module.css";
 type DrawerType = {
@@ -11,7 +11,6 @@ type DrawerType = {
 
 export const CustomDrawer: FC<PropsWithChildren<DrawerType>> = ({
 	children,
-	iconPosition,
 	placement,
 	title,
 	width,
@@ -19,11 +18,9 @@ export const CustomDrawer: FC<PropsWithChildren<DrawerType>> = ({
 	return (
 		<>
 			<Drawer
-				closable={true}
-				maskClosable={true}
+				getContainer={false}
 				open={true}
 				placement={placement}
-				styles={{ mask: { opacity: "0" } }}
 				title={title}
 				width={width}
 			>
