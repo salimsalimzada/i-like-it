@@ -1,0 +1,59 @@
+.cardContainer {
+	margin-bottom: 2.5rem;
+	border: 1px solid rebeccapurple;
+}
+
+.cardContainer > div + div {
+	background-color: rgb(224, 228, 222);
+	padding: 0.8rem !important;
+}
+
+.cardHeaderTitle {
+	color: rgba(173, 36, 36, 0.8);
+}
+
+.iconWrapper {
+	display: flex;
+}
+
+.iconWrapper > span {
+	font-size: 1.125rem;
+	color: rgb(95, 97, 98);
+}
+
+.removeIcon {
+	margin-inline-end: 0.8rem;
+}
+
+.emptyLabelMsg {
+	border: 3px dashed rgb(150, 148, 148);
+	text-align: center;
+	font-size: 1.375rem;
+	color: rgb(142, 140, 140);
+}
+
+.cardItem > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.rateOptionListWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-basis: 16%;
+	cursor: pointer;
+}
+
+.iconItem {
+	font-size: 2.325rem;
+}
+
+.iconLabel {
+	font-size: 1.125rem;
+	color: rgb(140, 135, 135);
+	font-weight: 500;
+}

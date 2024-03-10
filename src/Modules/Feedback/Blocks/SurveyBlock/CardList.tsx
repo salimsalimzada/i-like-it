@@ -1,42 +1,46 @@
+import { Space } from "antd";
 import { FC } from "react";
 import { Fragment } from "react/jsx-runtime";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
 import { CardItem } from "../../Elements/CardItem";
+import { QuestionListType } from "../../types";
 import styles from "./SurveyBlock.module.css";
-export const CardList: FC<{ state: any }> = ({ state }) => {
-	console.log(state, "in cardlist");
+export const CardList: FC<{ store: any }> = ({ store }) => {
+	console.log(store, "in cardlist");
 	return (
 		<Fragment>
-			<div className={styles.cardListContainer}>
-				{Object.keys(state).map((list) => (
+			<Space className={styles.cardListContainer} direction="vertical">
+				{Object.keys(store).map((list) => (
 					<Droppable droppableId={list} key={list}>
 						{(provided) => (
 							<div ref={provided.innerRef}>
-								{state[list].length ? (
-									state[list].map((item: any, index: number) => (
-										<Draggable
-											draggableId={item.id}
-											index={index}
-											key={item.id}
-										>
-											{(provided) => (
-												<div
-													ref={provided.innerRef}
-													{...provided.draggableProps}
-													style={provided.draggableProps.style}
-													{...provided.dragHandleProps}
-												>
-													<CardItem title={item.title} />
-												</div>
-											)}
-										</Draggable>
-									))
+								{store[list].length ? (
+									store[list].map(
+										(item: QuestionListType[number], index: number) => (
+											<Draggable
+												draggableId={item.id}
+												index={index}
+												key={item.id}
+											>
+												{(provided) => (
+													<div
+														ref={provided.innerRef}
+														{...provided.draggableProps}
+													>
+														<CardItem
+															cardTitle={item.title}
+															defaultProps={item.defaultProps}
+															provided={provided}
+														/>
+													</div>
+												)}
+											</Draggable>
+										),
+									)
 								) : (
 									<>
-										<p className={styles.emptyCardListMsg}>
-											Drag and drop a question here
-										</p>
+										<CardItem emptyLabel="Drag and drop a question here" />
 									</>
 								)}
 								{provided.placeholder}
@@ -44,7 +48,7 @@ export const CardList: FC<{ state: any }> = ({ state }) => {
 						)}
 					</Droppable>
 				))}
-			</div>
+			</Space>
 		</Fragment>
 	);
 };
