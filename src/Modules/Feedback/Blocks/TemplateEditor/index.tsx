@@ -1,4 +1,4 @@
-import { Space, TabsProps } from "antd";
+import { Space } from "antd";
 
 import { CustomTabs } from "../../../../Components/CustomTabs";
 import { Connection } from "./Connection";

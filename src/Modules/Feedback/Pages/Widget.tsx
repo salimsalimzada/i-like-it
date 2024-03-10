@@ -1,11 +1,7 @@
 import { Col, Row } from "antd";
 import { useState } from "react";
 import { Fragment } from "react/jsx-runtime";
-import {
-	DragDropContext,
-	DraggableLocation,
-	DropResult,
-} from "react-beautiful-dnd";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
 
 import { CustomDrawer } from "../../../Components/CustomDrawer";

@@ -1,5 +1,4 @@
 import { PlusCircleOutlined } from "@ant-design/icons";
-import { Col } from "antd";
 import { FC, PropsWithChildren, ReactElement } from "react";
 
 import styles from "./CustomIconBoxStyle.module.css";

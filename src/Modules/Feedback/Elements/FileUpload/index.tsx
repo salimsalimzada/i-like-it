@@ -1,16 +1,10 @@
-import { UploadOutlined } from "@ant-design/icons";
-import { Button, Image, Space, Upload } from "antd";
+import { Upload } from "antd";
 import React, { useState } from "react";
 
 import { CustomButton } from "../../../../Components";
 import styles from "./FileUpload.module.css";
 export const FileUpload: React.FC = () => {
 	const [imageUrl, setImageUrl] = useState<null | string>(null);
-
-	const handleBeforeUpload = (file: File) => {
-		// you can handle file type/size here
-		return true;
-	};
 
 	const handleCustomRequest = (options: any) => {
 		// just simulate an uploading image
@@ -28,7 +22,6 @@ export const FileUpload: React.FC = () => {
 				<>
 					<p className={styles.defaultTitle}>Survey logo</p>
 					<Upload
-						beforeUpload={handleBeforeUpload}
 						customRequest={handleCustomRequest}
 						listType="picture"
 						maxCount={1}

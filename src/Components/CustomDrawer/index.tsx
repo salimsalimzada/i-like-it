@@ -1,7 +1,6 @@
 import { Drawer, DrawerProps } from "antd";
 import { FC, PropsWithChildren } from "react";
 
-import styles from "./CustomDrawer.module.css";
 type DrawerType = {
 	iconPosition: string;
 	placement: DrawerProps["placement"];
