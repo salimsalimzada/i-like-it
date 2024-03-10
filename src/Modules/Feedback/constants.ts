@@ -8,51 +8,51 @@ import {
 	InfoCircleOutlined,
 	SmileOutlined,
 } from "@ant-design/icons";
-
+import { v4 as uuidv4 } from "uuid";
 export const QUESTION_TYPE_LIST = [
 	{
 		iconComponent: SmileOutlined,
-		id: 1,
+		id: uuidv4(),
 		title: "Smiley Rating",
 	},
 	{
 		iconComponent: AudioOutlined,
-		id: 2,
+		id: uuidv4(),
 		title: "Voice feedback",
 	},
 	{
 		iconComponent: FileAddOutlined,
-		id: 3,
+		id: uuidv4(),
 		title: "Single choice",
 	},
 	{
 		iconComponent: AppstoreAddOutlined,
-		id: 4,
+		id: uuidv4(),
 		title: "Multiple choice",
 	},
 	{
 		iconComponent: FileImageOutlined,
-		id: 5,
+		id: uuidv4(),
 		title: "Media file",
 	},
 	{
 		iconComponent: HistoryOutlined,
-		id: 6,
+		id: uuidv4(),
 		title: "Date option",
 	},
 	{
 		iconComponent: FileTextOutlined,
-		id: 7,
+		id: uuidv4(),
 		title: "Text input",
 	},
 	{
 		iconComponent: FileTextOutlined,
-		id: 8,
+		id: uuidv4(),
 		title: "Free text",
 	},
 	{
 		iconComponent: InfoCircleOutlined,
-		id: 9,
+		id: uuidv4(),
 		title: "Information",
 	},
 ];

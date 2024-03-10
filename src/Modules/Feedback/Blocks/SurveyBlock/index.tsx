@@ -1,11 +1,14 @@
 import { EditOutlined } from "@ant-design/icons";
+import { FC, PropsWithChildren } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 import { CustomButton } from "../../../../Components";
 import { FileUpload } from "../../Elements/FileUpload";
 import { CardList } from "./CardList";
 import styles from "./SurveyBlock.module.css";
-export const SurveyBlock = () => {
+export const SurveyBlock: FC<PropsWithChildren<{ state: any }>> = ({
+	state,
+}) => {
 	return (
 		<Fragment>
 			<div className={styles.surveyBlockContainer}>
@@ -19,7 +22,7 @@ export const SurveyBlock = () => {
 					<FileUpload />
 				</div>
 				<div className={styles.dragAndDropContainer}>
-					<CardList />
+					<CardList state={state} />
 				</div>
 				<div className={styles.submitBtn}>
 					<CustomButton children="Submit" />

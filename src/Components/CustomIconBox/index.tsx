@@ -12,20 +12,18 @@ export const CustomIconBox: FC<PropsWithChildren<CustomIconBoxType>> = ({
 	title,
 }) => {
 	return (
-		<Col span={8}>
-			<div className={styles.iconContainer}>
-				{title ? (
-					<>
-						<span className={styles.iconComponent}>{icon}</span>
-						<p className={styles.iconTitle}>{title}</p>
-						<span className={styles.draggableIcon}>...</span>
-					</>
-				) : (
-					<span className={styles.iconComponent}>
-						<PlusCircleOutlined />
-					</span>
-				)}
-			</div>
-		</Col>
+		<div className={styles.iconContainer}>
+			{title ? (
+				<>
+					<span className={styles.iconComponent}>{icon}</span>
+					<p className={styles.iconTitle}>{title}</p>
+					<span className={styles.draggableIcon}>...</span>
+				</>
+			) : (
+				<span className={styles.iconComponent}>
+					<PlusCircleOutlined />
+				</span>
+			)}
+		</div>
 	);
 };
