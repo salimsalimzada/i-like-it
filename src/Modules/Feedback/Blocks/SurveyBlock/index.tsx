@@ -1,5 +1,4 @@
 import { EditOutlined } from "@ant-design/icons";
-import { FC, PropsWithChildren } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 import { CustomButton } from "../../../../Components";

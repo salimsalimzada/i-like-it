@@ -1,0 +1,24 @@
+.rateLabelContainer {
+	display: block;
+	padding: 0.5rem;
+}
+
+.labelTitle {
+	font-size: 1.125rem;
+	color: rgb(103, 102, 101);
+}
+
+.inputField {
+	font-size: 1.125rem;
+	margin-bottom: 1.125rem;
+}
+
+.icon {
+	font-size: 1.125rem;
+	border-right: 1px dashed #2b2b2b;
+	padding-right: 8px;
+	color: gray;
+	height: 100%;
+	width: 100%;
+	height: 100%;
+}

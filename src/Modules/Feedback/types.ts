@@ -10,10 +10,16 @@ export type EmojiAndLabelType = {
 	label: string;
 };
 
+export type StrokePositionType = {
+	icon: IconType;
+	label: string;
+};
+
 export type SmileyRatingDefaultPropsType = {
 	color: string;
 	defaultRateValue: string;
+	defaultStrokePosition: string;
 	rateOptions: { [k: string]: EmojiAndLabelType[] };
-	strokePosition: string;
+	strokePosition: StrokePositionType[];
 	watchMode: boolean;
 };

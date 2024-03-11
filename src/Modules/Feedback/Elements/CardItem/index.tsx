@@ -1,6 +1,6 @@
 import { DeleteOutlined, SwapOutlined } from "@ant-design/icons";
 import { Card } from "antd";
-import { cloneDeep, isArray } from "lodash";
+import { cloneDeep } from "lodash";
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import { DraggableProvided } from "react-beautiful-dnd";
 
@@ -20,7 +20,7 @@ export const CardItem: FC<
 > = ({ cardTitle, defaultProps, emptyLabel, handleDelete, id, provided }) => {
 	const [feedbackState, setFeedbackState] = useCustomAtom(feedBackStore);
 	const [selectedIconKey, setSelectedIconKey] = useState<null | string>(null);
-	const { color, defaultRateValue, rateOptions, strokePosition, watchMode } =
+	const { defaultRateValue, defaultStrokePosition, rateOptions, watchMode } =
 		defaultProps ?? {};
 	const [_, rateOptionList] =
 		Object.entries(rateOptions ?? {}).find(
@@ -29,9 +29,20 @@ export const CardItem: FC<
 
 	const feedbackStateList = Object.values(feedbackState ?? {})?.[0];
 
+	useEffect(() => {
+		if (
+			feedbackStateList.length === 1 &&
+			!feedbackStateList[0].defaultProps.watchMode
+		) {
+			const singleCardId = feedbackStateList[0].id;
+			watchCard(singleCardId);
+		}
+	}, [feedbackStateList]);
+
 	const handleClick = (key: string) => {
 		setSelectedIconKey((prevKey) => (prevKey !== key ? key : null));
 	};
+	console.log(defaultStrokePosition, "defaultStrokePosition in CardList");
 
 	const watchCard = (id?: string) => {
 		const [key] = Object.keys(feedbackState ?? {});
@@ -50,16 +61,6 @@ export const CardItem: FC<
 			[key]: modifiedFeedbackList,
 		});
 	};
-
-	useEffect(() => {
-		if (
-			feedbackStateList.length === 1 &&
-			!feedbackStateList[0].defaultProps.watchMode
-		) {
-			const singleCardId = feedbackStateList[0].id;
-			watchCard(singleCardId);
-		}
-	}, [feedbackStateList]);
 
 	return (
 		<>
@@ -87,7 +88,9 @@ export const CardItem: FC<
 				>
 					<Card
 						className={styles.cardItem}
-						style={{ [`border${strokePosition}`]: `5px solid ${color}` }}
+						style={{
+							[`${defaultStrokePosition}`]: `5px solid blue`,
+						}}
 						type="inner"
 					>
 						{rateOptionList?.map((item) => (
@@ -98,7 +101,7 @@ export const CardItem: FC<
 									style={{
 										color:
 											selectedIconKey === item.key
-												? color
+												? "blue"
 												: "rgb(129, 127, 127)",
 									}}
 								>

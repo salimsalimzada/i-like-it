@@ -5,6 +5,7 @@ import { feedBackStore } from "../../../../Store/FeedbackState";
 import { useCustomAtomValue } from "../../../../Store/store";
 import { RateLabel } from "../../Elements/RateLabels";
 import { RateOptions } from "../../Elements/RateOptions";
+import { StrokePosition } from "../../Elements/StrokePosition";
 
 export const CustomFunctionality = () => {
 	const store = useCustomAtomValue(feedBackStore);
@@ -18,6 +19,7 @@ export const CustomFunctionality = () => {
 				<>
 					<RateOptions />
 					<RateLabel />
+					<StrokePosition />
 				</>
 			)}
 		</Fragment>

@@ -15,12 +15,20 @@ import {
 	FaRegFaceMehBlank,
 	FaRegFaceSmile,
 } from "react-icons/fa6";
+import {
+	MdBorderAll,
+	MdBorderBottom,
+	MdBorderLeft,
+	MdBorderRight,
+	MdBorderTop,
+} from "react-icons/md";
 import { v4 as uuidv4 } from "uuid";
 export const QUESTION_TYPE_LIST = [
 	{
 		defaultProps: {
 			color: "rgb(23, 53, 162)",
 			defaultRateValue: "1",
+			defaultStrokePosition: "borderLeft",
 			rateOptions: {
 				"1": [
 					{ icon: FaRegFaceGrinStars, key: uuidv4(), label: "Excellent" },
@@ -46,7 +54,13 @@ export const QUESTION_TYPE_LIST = [
 					{ icon: FaRegFaceMehBlank, key: uuidv4(), label: "Unacceptable" },
 				],
 			},
-			strokePosition: "Right",
+			strokePosition: [
+				{ icon: MdBorderAll, label: "border" },
+				{ icon: MdBorderRight, label: "borderRight" },
+				{ icon: MdBorderLeft, label: "borderLeft" },
+				{ icon: MdBorderBottom, label: "borderBottom" },
+				{ icon: MdBorderTop, label: "borderTop" },
+			],
 			watchMode: false,
 		},
 		iconComponent: SmileOutlined,
