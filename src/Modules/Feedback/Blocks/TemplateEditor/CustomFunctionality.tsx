@@ -1,11 +1,25 @@
+import { Empty } from "antd";
 import { Fragment } from "react/jsx-runtime";
 
+import { feedBackStore } from "../../../../Store/FeedbackState";
+import { useCustomAtomValue } from "../../../../Store/store";
+import { RateLabel } from "../../Elements/RateLabels";
 import { RateOptions } from "../../Elements/RateOptions";
 
 export const CustomFunctionality = () => {
+	const store = useCustomAtomValue(feedBackStore);
+	const feedbackStateList = Object.values(store ?? {})?.[0];
+	console.log(feedbackStateList, "feedbackStateList in CustomFunctioality");
 	return (
 		<Fragment>
-			<RateOptions />
+			{feedbackStateList.length === 0 ? (
+				<Empty />
+			) : (
+				<>
+					<RateOptions />
+					<RateLabel />
+				</>
+			)}
 		</Fragment>
 	);
 };

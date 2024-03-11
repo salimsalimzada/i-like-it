@@ -4,6 +4,14 @@ I need to write some more here
 
 ## Tools that I need to use/configure
 
-- Docker
+- Dockerfile
 - precommit
 - aliases for folder/file
+
+### Have to add/remove
+
+- any type
+- too much logic in a component
+- file/folder structure
+- too much repeation especially while setting to store
+- ErrorBoundary

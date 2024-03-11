@@ -13,7 +13,7 @@ const getDefaultRateValue = (feedbackStateList: any) => {
 
 	return Number(watchedFeedbackStateObj?.defaultProps?.defaultRateValue) ?? 1;
 };
-
+// TODO: Refactor some more
 export const RateOptions = () => {
 	const [feedbackState, setFeedbackState] = useCustomAtom(feedBackStore);
 	const feedbackStateList = Object.values(feedbackState ?? {})?.[0];
@@ -43,6 +43,7 @@ export const RateOptions = () => {
 			[key]: modifiedFeedbackState,
 		});
 	};
+	console.log(feedbackStateList, "feedbackStateList");
 	return (
 		<Fragment>
 			<CustomDivider children={"Rate Options"} />
