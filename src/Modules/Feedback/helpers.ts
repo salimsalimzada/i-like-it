@@ -8,7 +8,6 @@ export const reorderItems = (
 	startIndex: number,
 	endIndex: number,
 ) => {
-	console.log(arr, "arr");
 	const copiedArr = cloneDeep(arr);
 	const [removedObj] = copiedArr.splice(startIndex, 1);
 	copiedArr.splice(endIndex, 0, removedObj);

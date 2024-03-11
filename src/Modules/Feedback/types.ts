@@ -12,6 +12,8 @@ export type EmojiAndLabelType = {
 
 export type SmileyRatingDefaultPropsType = {
 	color: string;
+	defaultRateValue: string;
 	rateOptions: { [k: string]: EmojiAndLabelType[] };
 	strokePosition: string;
+	watchMode: boolean;
 };

@@ -1,22 +1,37 @@
 import { Space } from "antd";
-import { FC } from "react";
 import { Fragment } from "react/jsx-runtime";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
+import { feedBackStore } from "../../../../Store/FeedbackState";
+import { useCustomAtom } from "../../../../Store/store";
 import { CardItem } from "../../Elements/CardItem";
 import { QuestionListType } from "../../types";
 import styles from "./SurveyBlock.module.css";
-export const CardList: FC<{ store: any }> = ({ store }) => {
-	console.log(store, "in cardlist");
+export const CardList = () => {
+	const [feedBackState, setFeedBackState] = useCustomAtom(feedBackStore);
+	const handleDelete = (id?: string) => {
+		if (id) {
+			if (id) {
+				const key = Object.keys(feedBackState)?.[0];
+				const filteredData = Object.values(feedBackState)?.[0]?.filter(
+					(item: QuestionListType[number]) => item.id !== id,
+				);
+				setFeedBackState({
+					...feedBackState,
+					[key]: filteredData,
+				});
+			}
+		}
+	};
 	return (
 		<Fragment>
 			<Space className={styles.cardListContainer} direction="vertical">
-				{Object.keys(store).map((list) => (
+				{Object.keys(feedBackState).map((list) => (
 					<Droppable droppableId={list} key={list}>
 						{(provided) => (
 							<div ref={provided.innerRef}>
-								{store[list].length ? (
-									store[list].map(
+								{feedBackState[list].length ? (
+									feedBackState[list].map(
 										(item: QuestionListType[number], index: number) => (
 											<Draggable
 												draggableId={item.id}
@@ -31,6 +46,8 @@ export const CardList: FC<{ store: any }> = ({ store }) => {
 														<CardItem
 															cardTitle={item.title}
 															defaultProps={item.defaultProps}
+															handleDelete={handleDelete}
+															id={item.id}
 															provided={provided}
 														/>
 													</div>

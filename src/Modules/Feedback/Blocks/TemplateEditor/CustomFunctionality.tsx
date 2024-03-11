@@ -1,3 +1,11 @@
+import { Fragment } from "react/jsx-runtime";
+
+import { RateOptions } from "../../Elements/RateOptions";
+
 export const CustomFunctionality = () => {
-	return <>custom functioality</>;
+	return (
+		<Fragment>
+			<RateOptions />
+		</Fragment>
+	);
 };

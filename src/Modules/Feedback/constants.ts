@@ -20,6 +20,7 @@ export const QUESTION_TYPE_LIST = [
 	{
 		defaultProps: {
 			color: "rgb(23, 53, 162)",
+			defaultRateValue: "1",
 			rateOptions: {
 				"1": [
 					{ icon: FaRegFaceGrinStars, key: uuidv4(), label: "Excellent" },
@@ -46,6 +47,7 @@ export const QUESTION_TYPE_LIST = [
 				],
 			},
 			strokePosition: "Right",
+			watchMode: false,
 		},
 		iconComponent: SmileOutlined,
 		id: uuidv4(),

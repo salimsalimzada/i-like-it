@@ -1,4 +1,5 @@
 import { Space } from "antd";
+import { FC } from "react";
 
 import { CustomTabs } from "../../../../Components/CustomTabs";
 import { Connection } from "./Connection";

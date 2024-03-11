@@ -6,9 +6,7 @@ import { CustomButton } from "../../../../Components";
 import { FileUpload } from "../../Elements/FileUpload";
 import { CardList } from "./CardList";
 import styles from "./SurveyBlock.module.css";
-export const SurveyBlock: FC<PropsWithChildren<{ store: any }>> = ({
-	store,
-}) => {
+export const SurveyBlock = () => {
 	return (
 		<Fragment>
 			<div className={styles.surveyBlockContainer}>
@@ -22,7 +20,7 @@ export const SurveyBlock: FC<PropsWithChildren<{ store: any }>> = ({
 					<FileUpload />
 				</div>
 				<div className={styles.dragAndDropContainer}>
-					<CardList store={store} />
+					<CardList />
 				</div>
 				<div className={styles.submitBtn}>
 					<CustomButton children="Submit" />

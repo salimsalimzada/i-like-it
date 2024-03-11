@@ -1,6 +1,6 @@
 .cardContainer {
 	margin-bottom: 2.5rem;
-	border: 1px solid rebeccapurple;
+	cursor: pointer;
 }
 
 .cardContainer > div + div {
@@ -23,6 +23,7 @@
 
 .removeIcon {
 	margin-inline-end: 0.8rem;
+	cursor: pointer;
 }
 
 .emptyLabelMsg {
