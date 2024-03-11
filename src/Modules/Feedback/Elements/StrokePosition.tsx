@@ -33,7 +33,6 @@ export const StrokePosition = () => {
 			[key]: modifiedLabelList,
 		});
 	};
-	console.log(defaultStrokePosition, "defaultStrokePosition");
 	return (
 		<>
 			<CustomDivider children="Stroke Position" />

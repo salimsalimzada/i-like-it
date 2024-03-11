@@ -26,7 +26,6 @@ export const RateLabel = () => {
 	const handleChange: ChangeEventHandler<HTMLInputElement> = (
 		event: React.ChangeEvent<HTMLInputElement>,
 	) => {
-		console.log(event.target.value, "consol");
 		const modifiedLabels = labels.map((item: any) =>
 			item.key === event.target.dataset.key
 				? { ...item, label: event.target.value }

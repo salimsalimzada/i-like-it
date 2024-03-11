@@ -42,7 +42,6 @@ export const CardItem: FC<
 	const handleClick = (key: string) => {
 		setSelectedIconKey((prevKey) => (prevKey !== key ? key : null));
 	};
-	console.log(defaultStrokePosition, "defaultStrokePosition in CardList");
 
 	const watchCard = (id?: string) => {
 		const [key] = Object.keys(feedbackState ?? {});

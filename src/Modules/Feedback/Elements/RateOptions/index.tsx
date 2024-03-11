@@ -43,7 +43,6 @@ export const RateOptions = () => {
 			[key]: modifiedFeedbackState,
 		});
 	};
-	console.log(feedbackStateList, "feedbackStateList");
 	return (
 		<Fragment>
 			<CustomDivider children={"Rate Options"} />
