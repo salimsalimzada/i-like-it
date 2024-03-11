@@ -19,7 +19,7 @@ export const RateLabel = () => {
 
 	useEffect(() => {
 		if (activeWatchModeObj) {
-			setLabels(defaultRateLabels?.defaultProps.rateOptions[rateValue]);
+			setLabels(defaultRateLabels?.defaultProps?.rateOptions?.[rateValue]);
 		}
 	}, [rateValue, defaultRateLabels, activeWatchModeObj]);
 

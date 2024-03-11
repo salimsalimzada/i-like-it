@@ -72,7 +72,10 @@ export const CardItem: FC<
 						<div className={styles.iconWrapper}>
 							<span
 								className={styles.removeIcon}
-								onClick={() => handleDelete?.(id)}
+								onClick={(e) => {
+									e.stopPropagation();
+									handleDelete?.(id);
+								}}
 							>
 								<DeleteOutlined />
 							</span>

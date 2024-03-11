@@ -43,7 +43,7 @@ export const StrokePosition = () => {
 					width: "100%",
 				}}
 			>
-				{data?.defaultProps?.strokePosition.map((item: any, index: number) => (
+				{data?.defaultProps?.strokePosition?.map((item: any, index: number) => (
 					<span
 						key={index}
 						onClick={() => handleStrokePositionChange(item.label)}
