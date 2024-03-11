@@ -6,10 +6,11 @@ import { useCustomAtomValue } from "../../../../Store/store";
 import { RateLabel } from "../../Elements/RateLabels";
 import { RateOptions } from "../../Elements/RateOptions";
 import { StrokePosition } from "../../Elements/StrokePosition";
+import { getFirstArrayElementFromStore } from "../../helpers";
 
 export const CustomFunctionality = () => {
 	const store = useCustomAtomValue(feedBackStore);
-	const feedbackStateList = Object.values(store ?? {})?.[0];
+	const feedbackStateList = getFirstArrayElementFromStore(store);
 	return (
 		<Fragment>
 			{feedbackStateList.length === 0 ? (

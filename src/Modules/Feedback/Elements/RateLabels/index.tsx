@@ -1,38 +1,54 @@
 import { Input, Space } from "antd";
-import { cloneDeep } from "lodash";
+import { cloneDeep, isEmpty } from "lodash";
 import { ChangeEventHandler, useEffect, useState } from "react";
 
 import { feedBackStore } from "../../../../Store/FeedbackState";
 import { useCustomAtom } from "../../../../Store/store";
+import {
+	getFirstArrayElementFromStore,
+	getKeyFromStore,
+	getObjectWithWatchModeTrueProperty,
+} from "../../helpers";
+import {
+	EmojiAndLabelType,
+	QuestionListType,
+	RateOptionsType,
+} from "../../types";
 import styles from "./RateLabelsStyle.module.css";
 // TODO: Refactor here
 export const RateLabel = () => {
+	const [labels, setLabels] = useState<EmojiAndLabelType[]>([]);
 	const [feedbackState, setFeedbackState] = useCustomAtom(feedBackStore);
-	const feedbackStateList = Object.values(feedbackState ?? {})?.[0];
-	const activeWatchModeObj = feedbackStateList.find(
-		(item: any) => item.defaultProps.watchMode,
-	);
-	const rateValue = activeWatchModeObj?.defaultProps?.defaultRateValue;
-	const defaultRateLabels = feedbackStateList?.["0"];
-	const [labels, setLabels] = useState([]);
-	const [key] = Object.keys(feedbackState ?? {});
+	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
+	const feedbackStateObj =
+		getObjectWithWatchModeTrueProperty(feedbackStateList);
+	const rateValue = feedbackStateObj?.defaultProps?.defaultRateValue ?? "1";
+	const [key] = getKeyFromStore(feedbackState);
 
 	useEffect(() => {
-		if (activeWatchModeObj) {
-			setLabels(defaultRateLabels?.defaultProps?.rateOptions?.[rateValue]);
+		if (
+			feedbackStateObj &&
+			feedbackStateList.length &&
+			!isEmpty(feedbackStateList["0"])
+		) {
+			const defaultRateOptions =
+				feedbackStateList["0"].defaultProps.rateOptions;
+			if (defaultRateOptions && rateValue) {
+				setLabels(defaultRateOptions[rateValue as keyof RateOptionsType]);
+			}
 		}
-	}, [rateValue, defaultRateLabels, activeWatchModeObj]);
+	}, [rateValue, feedbackStateObj, feedbackStateList]);
 
 	const handleChange: ChangeEventHandler<HTMLInputElement> = (
 		event: React.ChangeEvent<HTMLInputElement>,
 	) => {
-		const modifiedLabels = labels.map((item: any) =>
+		const modifiedLabels = labels.map((item) =>
 			item.key === event.target.dataset.key
 				? { ...item, label: event.target.value }
 				: item,
 		);
-		setLabels(modifiedLabels as any);
-		const modifiedLabelList = cloneDeep(feedbackStateList)?.map((item: any) => {
+		setLabels(modifiedLabels);
+		const modifiedLabelList = cloneDeep(feedbackStateList)?.map((item) => {
 			if (item.defaultProps.watchMode) {
 				return {
 					...item,
@@ -57,10 +73,10 @@ export const RateLabel = () => {
 			<Space className={styles.rateLabelContainer}>
 				<h5 className={styles.labelTitle}>Rate Labels</h5>
 				<div className={styles.inputWrapper}>
-					{labels?.map((item: any) => (
+					{labels?.map((item) => (
 						<Input
 							className={styles.inputField}
-							data-key={item.key} // Add data-key attribute to identify the label
+							data-key={item.key}
 							key={item.key}
 							onChange={handleChange}
 							placeholder="Write whatever you want"

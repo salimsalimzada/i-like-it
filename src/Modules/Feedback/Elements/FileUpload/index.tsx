@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import { CustomButton } from "../../../../Components";
 import styles from "./FileUpload.module.css";
+
 export const FileUpload: React.FC = () => {
 	const [imageUrl, setImageUrl] = useState<null | string>(null);
 

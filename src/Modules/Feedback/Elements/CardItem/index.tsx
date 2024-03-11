@@ -6,7 +6,7 @@ import { DraggableProvided } from "react-beautiful-dnd";
 
 import { feedBackStore } from "../../../../Store/FeedbackState";
 import { useCustomAtom } from "../../../../Store/store";
-import { SmileyRatingDefaultPropsType } from "../../types";
+import { QuestionListType, SmileyRatingDefaultPropsType } from "../../types";
 import styles from "./CardItem.module.css";
 export const CardItem: FC<
 	PropsWithChildren<{
@@ -47,7 +47,7 @@ export const CardItem: FC<
 		const [key] = Object.keys(feedbackState ?? {});
 
 		const modifiedFeedbackList = cloneDeep(feedbackStateList).map(
-			(item: any) => ({
+			(item: QuestionListType[number]) => ({
 				...item,
 				defaultProps: {
 					...cloneDeep(item.defaultProps),
@@ -57,7 +57,7 @@ export const CardItem: FC<
 		);
 
 		setFeedbackState({
-			[key]: modifiedFeedbackList,
+			[key]: modifiedFeedbackList as QuestionListType,
 		});
 	};
 

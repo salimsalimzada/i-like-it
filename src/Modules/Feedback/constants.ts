@@ -1,27 +1,26 @@
 import {
-	AppstoreAddOutlined,
-	AudioOutlined,
-	FileAddOutlined,
-	FileImageOutlined,
-	FileTextOutlined,
-	HistoryOutlined,
-	InfoCircleOutlined,
-	SmileOutlined,
-} from "@ant-design/icons";
-import {
 	FaRegFaceFrown,
 	FaRegFaceGrinStars,
 	FaRegFaceMeh,
 	FaRegFaceMehBlank,
 	FaRegFaceSmile,
 } from "react-icons/fa6";
+import { GoSmiley } from "react-icons/go";
+import { GrMultiple } from "react-icons/gr";
+import { IoInformationOutline } from "react-icons/io5";
 import {
 	MdBorderAll,
 	MdBorderBottom,
 	MdBorderLeft,
 	MdBorderRight,
 	MdBorderTop,
+	MdKeyboardVoice,
+	MdOutlineDateRange,
 } from "react-icons/md";
+import { PiChatText } from "react-icons/pi";
+import { RxText } from "react-icons/rx";
+import { SiSinglestore } from "react-icons/si";
+import { VscFileMedia } from "react-icons/vsc";
 import { v4 as uuidv4 } from "uuid";
 export const QUESTION_TYPE_LIST = [
 	{
@@ -63,55 +62,55 @@ export const QUESTION_TYPE_LIST = [
 			],
 			watchMode: false,
 		},
-		iconComponent: SmileOutlined,
+		iconComponent: GoSmiley,
 		id: uuidv4(),
 		title: "Smiley Rating",
 	},
 	{
 		defaultProps: {},
-		iconComponent: AudioOutlined,
+		iconComponent: MdKeyboardVoice,
 		id: uuidv4(),
 		title: "Voice feedback",
 	},
 	{
 		defaultProps: {},
-		iconComponent: FileAddOutlined,
+		iconComponent: SiSinglestore,
 		id: uuidv4(),
 		title: "Single choice",
 	},
 	{
 		defaultProps: {},
-		iconComponent: AppstoreAddOutlined,
+		iconComponent: GrMultiple,
 		id: uuidv4(),
 		title: "Multiple choice",
 	},
 	{
 		defaultProps: {},
-		iconComponent: FileImageOutlined,
+		iconComponent: VscFileMedia,
 		id: uuidv4(),
 		title: "Media file",
 	},
 	{
 		defaultProps: {},
-		iconComponent: HistoryOutlined,
+		iconComponent: MdOutlineDateRange,
 		id: uuidv4(),
 		title: "Date option",
 	},
 	{
 		defaultProps: {},
-		iconComponent: FileTextOutlined,
+		iconComponent: RxText,
 		id: uuidv4(),
 		title: "Text input",
 	},
 	{
 		defaultProps: {},
-		iconComponent: FileTextOutlined,
+		iconComponent: PiChatText,
 		id: uuidv4(),
 		title: "Free text",
 	},
 	{
 		defaultProps: {},
-		iconComponent: InfoCircleOutlined,
+		iconComponent: IoInformationOutline,
 		id: uuidv4(),
 		title: "Information",
 	},

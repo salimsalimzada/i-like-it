@@ -2,12 +2,13 @@ import { Col, Row } from "antd";
 import { Fragment } from "react/jsx-runtime";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
-import { CustomIconBox } from "../../../../Components";
+import { CustomDivider, CustomIconBox } from "../../../../Components";
 import { QUESTION_TYPE_LIST } from "../../constants";
 
 export const QuestionType = () => {
 	return (
 		<Fragment>
+			<CustomDivider children="Question Type" />
 			<Droppable droppableId="QUESTION_TYPE_LIST" isDropDisabled={true}>
 				{(provided) => (
 					<Row gutter={[16, 12]} ref={provided.innerRef}>

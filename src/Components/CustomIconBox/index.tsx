@@ -1,5 +1,6 @@
-import { PlusCircleOutlined } from "@ant-design/icons";
 import { FC, PropsWithChildren, ReactElement } from "react";
+import { MdOutlineAddCircleOutline } from "react-icons/md";
+import { RiDraggable } from "react-icons/ri";
 
 import styles from "./CustomIconBoxStyle.module.css";
 type CustomIconBoxType = {
@@ -16,11 +17,11 @@ export const CustomIconBox: FC<PropsWithChildren<CustomIconBoxType>> = ({
 				<>
 					<span className={styles.iconComponent}>{icon}</span>
 					<p className={styles.iconTitle}>{title}</p>
-					<span className={styles.draggableIcon}>...</span>
+					<span className={styles.draggableIcon}>{<RiDraggable />}</span>
 				</>
 			) : (
 				<span className={styles.iconComponent}>
-					<PlusCircleOutlined />
+					<MdOutlineAddCircleOutline />
 				</span>
 			)}
 		</div>

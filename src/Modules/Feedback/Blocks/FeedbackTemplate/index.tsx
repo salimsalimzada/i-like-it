@@ -6,7 +6,6 @@ import { CustomDivider } from "../../../../Components";
 export const FeedbackTemplate = () => {
 	return (
 		<Fragment>
-			<CustomDivider children="Question Type" />
 			<QuestionType />
 			<CustomDivider />
 			<CustomDivider children="Customer Information" />

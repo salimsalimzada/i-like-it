@@ -5,39 +5,34 @@ import { Fragment } from "react/jsx-runtime";
 import { CustomDivider } from "../../../../Components";
 import { feedBackStore } from "../../../../Store/FeedbackState";
 import { useCustomAtom } from "../../../../Store/store";
+import {
+	getDefaultRateValue,
+	getFirstArrayElementFromStore,
+	getKeyFromStore,
+} from "../../helpers";
 
-const getDefaultRateValue = (feedbackStateList: any) => {
-	const watchedFeedbackStateObj = feedbackStateList.find(
-		(item: any) => item.defaultProps.watchMode,
-	);
-
-	return Number(watchedFeedbackStateObj?.defaultProps?.defaultRateValue) ?? 1;
-};
-// TODO: Refactor some more
 export const RateOptions = () => {
 	const [feedbackState, setFeedbackState] = useCustomAtom(feedBackStore);
-	const feedbackStateList = Object.values(feedbackState ?? {})?.[0];
-	const questionTypeListObj = cloneDeep(
-		(isArray(feedbackStateList) && feedbackStateList[0]) || {},
+	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
+	const questionTypeListObj = cloneDeep(feedbackStateList[0] || {});
+	const rateOptionList = Object.entries(
+		questionTypeListObj?.defaultProps?.rateOptions ?? {},
 	);
-
 	const onChange = (event: RadioChangeEvent) => {
-		const [key] = Object.keys(feedbackState ?? {});
+		const [key] = getKeyFromStore(feedbackState);
 
-		const modifiedFeedbackState = cloneDeep(feedbackStateList).map(
-			(item: any) => {
-				if (item.defaultProps.watchMode) {
-					return {
-						...item,
-						defaultProps: {
-							...item.defaultProps,
-							defaultRateValue: String(event.target.value),
-						},
-					};
-				}
-				return item;
-			},
-		);
+		const modifiedFeedbackState = cloneDeep(feedbackStateList).map((item) => {
+			if (item.defaultProps.watchMode) {
+				return {
+					...item,
+					defaultProps: {
+						...item.defaultProps,
+						defaultRateValue: String(event.target.value),
+					},
+				};
+			}
+			return item;
+		});
 
 		setFeedbackState({
 			[key]: modifiedFeedbackState,
@@ -52,9 +47,7 @@ export const RateOptions = () => {
 			>
 				<Space direction="vertical">
 					{!isEmpty(questionTypeListObj) &&
-						Object.entries(
-							questionTypeListObj?.defaultProps?.rateOptions ?? {},
-						).map(([key, value], index) => {
+						rateOptionList?.map(([key, value], index) => {
 							return (
 								<Radio key={index} value={Number(key)}>
 									{isArray(value)
@@ -70,7 +63,7 @@ export const RateOptions = () => {
 													<item.icon />
 												</span>
 											))
-										: ""}
+										: null}
 								</Radio>
 							);
 						})}

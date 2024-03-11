@@ -1,5 +1,5 @@
-import { EditOutlined } from "@ant-design/icons";
 import { Fragment } from "react/jsx-runtime";
+import { CiEdit } from "react-icons/ci";
 
 import { CustomButton } from "../../../../Components";
 import { FileUpload } from "../../Elements/FileUpload";
@@ -12,7 +12,7 @@ export const SurveyBlock = () => {
 				<div className={styles.pageTitle}>
 					Page 1
 					<span className={styles.editIcon}>
-						<EditOutlined />{" "}
+						<CiEdit />{" "}
 					</span>
 				</div>
 				<div className={styles.fileUploadContainer}>

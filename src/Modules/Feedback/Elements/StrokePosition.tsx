@@ -4,11 +4,12 @@ import { useState } from "react";
 import { CustomDivider } from "../../../Components";
 import { feedBackStore } from "../../../Store/FeedbackState";
 import { useCustomAtom } from "../../../Store/store";
+import { getFirstArrayElementFromStore, getKeyFromStore } from "../helpers";
 
 export const StrokePosition = () => {
 	const [feedbackState, setFeedbackState] = useCustomAtom(feedBackStore);
 
-	const feedbackStateList = Object.values(feedbackState ?? {})?.[0];
+	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
 	const data = feedbackStateList?.[0];
 
 	const [defaultStrokePosition, setDefaultStrokePositoin] = useState(
@@ -16,8 +17,8 @@ export const StrokePosition = () => {
 	);
 	const handleStrokePositionChange = (position: string) => {
 		setDefaultStrokePositoin(position);
-		const [key] = Object.keys(feedbackState ?? {});
-		const modifiedLabelList = cloneDeep(feedbackStateList)?.map((item: any) => {
+		const [key] = getKeyFromStore(feedbackState);
+		const modifiedLabelList = cloneDeep(feedbackStateList)?.map((item) => {
 			if (item.defaultProps.watchMode) {
 				return {
 					...item,
@@ -43,7 +44,7 @@ export const StrokePosition = () => {
 					width: "100%",
 				}}
 			>
-				{data?.defaultProps?.strokePosition?.map((item: any, index: number) => (
+				{data?.defaultProps?.strokePosition?.map((item, index: number) => (
 					<span
 						key={index}
 						onClick={() => handleStrokePositionChange(item.label)}

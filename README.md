@@ -12,6 +12,7 @@ I need to write some more here
 
 - any type
 - too much logic in a component
-- file/folder structure
+- file/folder structure aka type alias for files/folders
 - too much repeation especially while setting to store
 - ErrorBoundary
+- handling empty/not related state in Template Editor

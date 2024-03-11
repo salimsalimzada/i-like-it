@@ -2,7 +2,7 @@ import { cloneDeep } from "lodash";
 import { DraggableLocation } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
 
-import { QuestionListType } from "./types";
+import { QuestionListStoreType, QuestionListType } from "./types";
 export const reorderItems = (
 	arr: QuestionListType,
 	startIndex: number,
@@ -28,4 +28,26 @@ export const copyItems = (
 		id: uuidv4(),
 	});
 	return destinationListClone;
+};
+
+export const getFirstArrayElementFromStore = (store: QuestionListStoreType) => {
+	return Object.values(store ?? {})?.[0] ?? [];
+};
+
+export const getKeyFromStore = (store: QuestionListStoreType) => {
+	return Object.keys(store ?? {});
+};
+
+export const getDefaultRateValue = (feedBackList: QuestionListType) => {
+	const watchedFeedbackStateObj = feedBackList.find(
+		(item) => item.defaultProps.watchMode,
+	);
+
+	return Number(watchedFeedbackStateObj?.defaultProps?.defaultRateValue) ?? 1;
+};
+
+export const getObjectWithWatchModeTrueProperty = (
+	feedBackList: QuestionListType,
+) => {
+	return feedBackList.find((item) => item.defaultProps.watchMode);
 };
