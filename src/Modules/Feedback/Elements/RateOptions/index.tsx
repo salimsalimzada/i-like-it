@@ -3,8 +3,8 @@ import { cloneDeep, isArray, isEmpty } from "lodash";
 import { Fragment } from "react/jsx-runtime";
 
 import { CustomDivider } from "../../../../Components";
-import { feedBackStore } from "../../../../Store/FeedbackState";
-import { useCustomAtom } from "../../../../Store/store";
+import { feedBackStore } from "../../../../Stores/feedbackStore";
+import { useStore } from "../../../../Stores/store";
 import {
 	getDefaultRateValue,
 	getFirstArrayElementFromStore,
@@ -12,7 +12,7 @@ import {
 } from "../../helpers";
 
 export const RateOptions = () => {
-	const [feedbackState, setFeedbackState] = useCustomAtom(feedBackStore);
+	const [feedbackState, setFeedbackState] = useStore(feedBackStore);
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
 	const questionTypeListObj = cloneDeep(feedbackStateList[0] || {});
 	const rateOptionList = Object.entries(

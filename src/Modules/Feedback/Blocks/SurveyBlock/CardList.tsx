@@ -2,13 +2,13 @@ import { Space } from "antd";
 import { Fragment } from "react/jsx-runtime";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
-import { feedBackStore } from "../../../../Store/FeedbackState";
-import { useCustomAtom } from "../../../../Store/store";
+import { feedBackStore } from "../../../../Stores/feedbackStore";
+import { useStore } from "../../../../Stores/store";
 import { CardItem } from "../../Elements/CardItem";
 import { QuestionListType } from "../../types";
 import styles from "./SurveyBlock.module.css";
 export const CardList = () => {
-	const [feedBackState, setFeedBackState] = useCustomAtom(feedBackStore);
+	const [feedBackState, setFeedBackState] = useStore(feedBackStore);
 	const handleDelete = (id?: string) => {
 		if (id) {
 			if (id) {

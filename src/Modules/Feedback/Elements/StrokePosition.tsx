@@ -2,8 +2,8 @@ import { cloneDeep } from "lodash";
 import { useEffect, useState } from "react";
 
 import { CustomDivider } from "../../../Components";
-import { feedBackStore } from "../../../Store/FeedbackState";
-import { useCustomAtom } from "../../../Store/store";
+import { feedBackStore } from "../../../Stores/feedbackStore";
+import { useStore } from "../../../Stores/store";
 import {
 	getFirstArrayElementFromStore,
 	getKeyFromStore,
@@ -11,7 +11,7 @@ import {
 } from "../helpers";
 
 export const StrokePosition = () => {
-	const [feedbackState, setFeedbackState] = useCustomAtom(feedBackStore);
+	const [feedbackState, setFeedbackState] = useStore(feedBackStore);
 
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
 	const data = getObjectWithWatchModeTrueProperty(feedbackStateList);

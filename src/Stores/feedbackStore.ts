@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 
 import { QuestionListStoreType } from "../Modules/Feedback/types";
-import { createAtom } from "./store";
+import { createStore } from "./store";
 
-const feedBackStore = createAtom<QuestionListStoreType>({
+const feedBackStore = createStore<QuestionListStoreType>({
 	[uuidv4()]: [],
 });
 

@@ -4,8 +4,8 @@ import { cloneDeep } from "lodash";
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import { DraggableProvided } from "react-beautiful-dnd";
 
-import { feedBackStore } from "../../../../Store/FeedbackState";
-import { useCustomAtom } from "../../../../Store/store";
+import { feedBackStore } from "../../../../Stores/feedbackStore";
+import { useStore } from "../../../../Stores/store";
 import { getFirstArrayElementFromStore, getKeyFromStore } from "../../helpers";
 import { QuestionListType, SmileyRatingDefaultPropsType } from "../../types";
 import styles from "./CardItem.module.css";
@@ -19,7 +19,7 @@ export const CardItem: FC<
 		provided?: DraggableProvided;
 	}>
 > = ({ cardTitle, defaultProps, emptyLabel, handleDelete, id, provided }) => {
-	const [feedbackState, setFeedbackState] = useCustomAtom(feedBackStore);
+	const [feedbackState, setFeedbackState] = useStore(feedBackStore);
 	const [selectedIconKey, setSelectedIconKey] = useState<null | string>(null);
 	const { defaultRateValue, defaultStrokePosition, rateOptions, watchMode } =
 		defaultProps ?? {};

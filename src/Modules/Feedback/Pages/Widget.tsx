@@ -4,8 +4,8 @@ import { DragDropContext, DropResult } from "react-beautiful-dnd";
 
 import { CustomDrawer } from "../../../Components/CustomDrawer";
 import ErrorBoundary from "../../../Components/ErrorBoundary";
-import { feedBackStore } from "../../../Store/FeedbackState";
-import { useCustomAtom } from "../../../Store/store";
+import { feedBackStore } from "../../../Stores/feedbackStore";
+import { useStore } from "../../../Stores/store";
 import { FeedbackTemplate } from "../Blocks/FeedbackTemplate";
 import { SurveyBlock } from "../Blocks/SurveyBlock";
 import { TemplateEditor } from "../Blocks/TemplateEditor";
@@ -14,7 +14,7 @@ import { copyItems, reorderItems } from "../helpers";
 import { QuestionListType } from "../types";
 
 const Widget = () => {
-	const [feedBackState, setFeedBackState] = useCustomAtom(feedBackStore);
+	const [feedBackState, setFeedBackState] = useStore(feedBackStore);
 	const onDragEnd = (result: DropResult) => {
 		const { destination, source } = result;
 		if (!destination) return;
