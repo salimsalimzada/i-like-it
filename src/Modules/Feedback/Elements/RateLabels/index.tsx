@@ -9,13 +9,8 @@ import {
 	getKeyFromStore,
 	getObjectWithWatchModeTrueProperty,
 } from "../../helpers";
-import {
-	EmojiAndLabelType,
-	QuestionListType,
-	RateOptionsType,
-} from "../../types";
+import { EmojiAndLabelType, RateOptionsType } from "../../types";
 import styles from "./RateLabelsStyle.module.css";
-// TODO: Refactor here
 export const RateLabel = () => {
 	const [labels, setLabels] = useState<EmojiAndLabelType[]>([]);
 	const [feedbackState, setFeedbackState] = useCustomAtom(feedBackStore);

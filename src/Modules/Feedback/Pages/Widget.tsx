@@ -3,6 +3,7 @@ import { Fragment } from "react/jsx-runtime";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 
 import { CustomDrawer } from "../../../Components/CustomDrawer";
+import ErrorBoundary from "../../../Components/ErrorBoundary";
 import { feedBackStore } from "../../../Store/FeedbackState";
 import { useCustomAtom } from "../../../Store/store";
 import { FeedbackTemplate } from "../Blocks/FeedbackTemplate";
@@ -55,30 +56,36 @@ const Widget = () => {
 				}}
 			>
 				<DragDropContext onDragEnd={onDragEnd}>
+					<ErrorBoundary>
+						<Col span={6}>
+							<CustomDrawer
+								iconPosition="right"
+								placement="left"
+								title="Feedback template"
+								width={"400px"}
+							>
+								<FeedbackTemplate />
+							</CustomDrawer>
+						</Col>
+					</ErrorBoundary>
+					<ErrorBoundary>
+						<Col span={12}>
+							<SurveyBlock />
+						</Col>
+					</ErrorBoundary>
+				</DragDropContext>
+				<ErrorBoundary>
 					<Col span={6}>
 						<CustomDrawer
 							iconPosition="right"
-							placement="left"
-							title="Feedback template"
+							placement="right"
+							title="Template Editor"
 							width={"400px"}
 						>
-							<FeedbackTemplate />
+							<TemplateEditor />
 						</CustomDrawer>
 					</Col>
-					<Col span={12}>
-						<SurveyBlock />
-					</Col>
-				</DragDropContext>
-				<Col span={6}>
-					<CustomDrawer
-						iconPosition="right"
-						placement="right"
-						title="Template Editor"
-						width={"400px"}
-					>
-						<TemplateEditor />
-					</CustomDrawer>
-				</Col>
+				</ErrorBoundary>
 			</Row>
 		</Fragment>
 	);

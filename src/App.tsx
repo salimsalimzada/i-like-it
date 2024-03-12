@@ -1,11 +1,14 @@
 import { Fragment } from "react/jsx-runtime";
 
+import ErrorBoundary from "./Components/ErrorBoundary";
 import { Widget } from "./Modules/Feedback/Pages";
 
 function App() {
 	return (
 		<Fragment>
-			<Widget />
+			<ErrorBoundary>
+				<Widget />
+			</ErrorBoundary>
 		</Fragment>
 	);
 }

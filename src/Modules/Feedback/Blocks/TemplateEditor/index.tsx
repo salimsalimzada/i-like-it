@@ -1,6 +1,7 @@
 import { Space } from "antd";
 
 import { CustomTabs } from "../../../../Components/CustomTabs";
+import ErrorBoundary from "../../../../Components/ErrorBoundary";
 import { Connection } from "./Connection";
 import { CustomFunctionality } from "./CustomFunctionality";
 import { Settings } from "./Settings";
@@ -9,7 +10,11 @@ import styles from "./TemplateEditorStyle.module.css";
 export const TemplateEditor = () => {
 	const items = [
 		{
-			children: <CustomFunctionality />,
+			children: (
+				<ErrorBoundary>
+					<CustomFunctionality />
+				</ErrorBoundary>
+			),
 			key: "1",
 			label: "Tab 1",
 		},
