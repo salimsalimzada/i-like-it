@@ -1,22 +1,25 @@
 import { cloneDeep } from "lodash";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { CustomDivider } from "../../../Components";
 import { feedBackStore } from "../../../Store/FeedbackState";
 import { useCustomAtom } from "../../../Store/store";
-import { getFirstArrayElementFromStore, getKeyFromStore } from "../helpers";
+import {
+	getFirstArrayElementFromStore,
+	getKeyFromStore,
+	getObjectWithWatchModeTrueProperty,
+} from "../helpers";
 
 export const StrokePosition = () => {
 	const [feedbackState, setFeedbackState] = useCustomAtom(feedBackStore);
 
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
-	const data = feedbackStateList?.[0];
+	const data = getObjectWithWatchModeTrueProperty(feedbackStateList);
 
-	const [defaultStrokePosition, setDefaultStrokePositoin] = useState(
-		data.defaultProps.defaultStrokePosition,
-	);
+	const [defaultStrokePosition, setDefaultStrokePosition] =
+		useState("borderLeft");
 	const handleStrokePositionChange = (position: string) => {
-		setDefaultStrokePositoin(position);
+		setDefaultStrokePosition(position);
 		const [key] = getKeyFromStore(feedbackState);
 		const modifiedLabelList = cloneDeep(feedbackStateList)?.map((item) => {
 			if (item.defaultProps.watchMode) {
@@ -34,6 +37,15 @@ export const StrokePosition = () => {
 			[key]: modifiedLabelList,
 		});
 	};
+	useEffect(() => {
+		if (
+			data?.defaultProps.watchMode &&
+			defaultStrokePosition !== data.defaultProps.defaultStrokePosition
+		) {
+			setDefaultStrokePosition(data.defaultProps.defaultStrokePosition);
+		}
+	}, [data, defaultStrokePosition]);
+
 	return (
 		<>
 			<CustomDivider children="Stroke Position" />

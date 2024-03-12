@@ -6,6 +6,7 @@ import { DraggableProvided } from "react-beautiful-dnd";
 
 import { feedBackStore } from "../../../../Store/FeedbackState";
 import { useCustomAtom } from "../../../../Store/store";
+import { getFirstArrayElementFromStore, getKeyFromStore } from "../../helpers";
 import { QuestionListType, SmileyRatingDefaultPropsType } from "../../types";
 import styles from "./CardItem.module.css";
 export const CardItem: FC<
@@ -27,24 +28,9 @@ export const CardItem: FC<
 			([key]) => key === defaultRateValue,
 		) ?? [];
 
-	const feedbackStateList = Object.values(feedbackState ?? {})?.[0];
-
-	useEffect(() => {
-		if (
-			feedbackStateList.length === 1 &&
-			!feedbackStateList[0].defaultProps.watchMode
-		) {
-			const singleCardId = feedbackStateList[0].id;
-			watchCard(singleCardId);
-		}
-	}, [feedbackStateList]);
-
-	const handleClick = (key: string) => {
-		setSelectedIconKey((prevKey) => (prevKey !== key ? key : null));
-	};
-
+	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
 	const watchCard = (id?: string) => {
-		const [key] = Object.keys(feedbackState ?? {});
+		const [key] = getKeyFromStore(feedbackState);
 
 		const modifiedFeedbackList = cloneDeep(feedbackStateList).map(
 			(item: QuestionListType[number]) => ({
@@ -59,6 +45,19 @@ export const CardItem: FC<
 		setFeedbackState({
 			[key]: modifiedFeedbackList as QuestionListType,
 		});
+	};
+	useEffect(() => {
+		if (
+			feedbackStateList.length === 1 &&
+			!feedbackStateList[0].defaultProps.watchMode
+		) {
+			const singleCardId = feedbackStateList[0].id;
+			watchCard(singleCardId);
+		}
+	}, [feedbackStateList]);
+
+	const handleClick = (key: string) => {
+		setSelectedIconKey((prevKey) => (prevKey !== key ? key : null));
 	};
 
 	return (
