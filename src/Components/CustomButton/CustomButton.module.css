@@ -1,5 +1,12 @@
 .customBtnStyle {
-	border: 1px solid red;
-	height: 2rem;
-	width: 100px;
+	min-height: 3rem;
+	padding: 0 1.1255rem;
+	font-size: 1.25rem;
+	font-weight: 500;
+	width: 100%;
+}
+
+.icon {
+	font-size: 1.3rem;
+	vertical-align: text-top;
 }

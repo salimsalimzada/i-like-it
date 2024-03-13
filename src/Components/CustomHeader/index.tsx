@@ -9,25 +9,29 @@ export const CustomHeader = () => {
 		<Fragment>
 			<Header className={styles.headerContainer}>
 				<Row>
-					<Col className={styles.topLeftBarContent} xs={{ span: 6 }}>
+					<Col className={styles.topLeftBarContent} xs={{ span: 4 }}>
 						<p>
 							Task Template
-							<span className={styles.editIcon}>
-								<CiEdit />
-							</span>
+							<CiEdit className={styles.editIcon} />
 						</p>
 					</Col>
-					<Col className={styles.topCenterBarContent} xs={{ span: 12 }}>
+					<Col
+						className={styles.topCenterBarContent}
+						xs={{ offset: 1, span: 12 }}
+					>
 						<ul className={styles.navWrapper}>
 							<li> Widget </li>
 							<li> Flow </li>
 							<li> Preview </li>
 						</ul>
 					</Col>
-					<Col className={styles.topRightBarContent} xs={{ span: 6 }}>
+					<Col
+						className={styles.topRightBarContent}
+						xs={{ offset: 2, span: 5 }}
+					>
 						<CustomButton children="Duplicate" />
-						<CustomButton children="Save Preview" />
-						<CustomButton children="Save" />
+						<CustomButton children="Save Preview" type="default" />
+						<CustomButton children="Save" type="primary" />
 					</Col>
 				</Row>
 			</Header>

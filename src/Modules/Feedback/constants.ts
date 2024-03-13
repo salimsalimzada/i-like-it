@@ -5,8 +5,8 @@ import {
 	FaRegFaceMehBlank,
 	FaRegFaceSmile,
 } from "react-icons/fa6";
-import { GoSmiley } from "react-icons/go";
-import { GrMultiple } from "react-icons/gr";
+import { GoPerson, GoSmiley } from "react-icons/go";
+import { GrMultiple, GrPhone } from "react-icons/gr";
 import { IoInformationOutline } from "react-icons/io5";
 import {
 	MdBorderAll,
@@ -16,10 +16,12 @@ import {
 	MdBorderTop,
 	MdKeyboardVoice,
 	MdOutlineDateRange,
+	MdOutlineMail,
 } from "react-icons/md";
 import { PiChatText } from "react-icons/pi";
-import { RxText } from "react-icons/rx";
+import { RxSlider, RxText } from "react-icons/rx";
 import { SiSinglestore } from "react-icons/si";
+import { TbGenderBigender } from "react-icons/tb";
 import { VscFileMedia } from "react-icons/vsc";
 import { v4 as uuidv4 } from "uuid";
 export const QUESTION_TYPE_LIST = [
@@ -113,5 +115,44 @@ export const QUESTION_TYPE_LIST = [
 		iconComponent: IoInformationOutline,
 		id: uuidv4(),
 		title: "Information",
+	},
+];
+
+export const CUSTOMER_INFROMATION_LIST = [
+	{
+		defaultProps: {},
+		iconComponent: MdOutlineMail,
+		id: uuidv4(),
+		title: "Email",
+	},
+	{
+		defaultProps: {},
+		iconComponent: GoPerson,
+		id: uuidv4(),
+		title: "Full name",
+	},
+	{
+		defaultProps: {},
+		iconComponent: TbGenderBigender,
+		id: uuidv4(),
+		title: "Gender",
+	},
+	{
+		defaultProps: {},
+		iconComponent: RxSlider,
+		id: uuidv4(),
+		title: "Age range",
+	},
+	{
+		defaultProps: {},
+		iconComponent: GrPhone,
+		id: uuidv4(),
+		title: "Phone number",
+	},
+	{
+		defaultProps: {},
+		iconComponent: "",
+		id: uuidv4(),
+		title: "",
 	},
 ];

@@ -1,0 +1,26 @@
+.drawerWrapper > div:nth-child(2) {
+	padding: 0.375rem 1.125rem;
+}
+
+.drawerDefaultCloseBtn {
+	:global(.ant-drawer-header-title > button) {
+		color: rgb(41, 39, 39);
+		font-size: 1.125rem;
+		margin-left: 0.125rem;
+	}
+}
+.drawerModifiedCloseBtn {
+	:global(.ant-drawer-header-title) {
+		flex-direction: row-reverse;
+	}
+
+	:global(.ant-drawer-header-title > button) {
+		margin-right: 0;
+		color: rgb(35, 33, 33);
+		font-size: 1.125rem;
+	}
+}
+
+.drawerTitle {
+	font-size: 1.125rem;
+}

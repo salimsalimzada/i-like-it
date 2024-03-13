@@ -1,15 +1,17 @@
 import { Fragment } from "react/jsx-runtime";
 
-import { QuestionType } from ".";
 import { CustomDivider } from "../../../../Components";
+import { CustomerInformation } from "./CustomerInformation";
+import { MultiLanguages } from "./MultiLanguages";
+import { QuestionType } from "./QuestionType";
 
 export const FeedbackTemplate = () => {
 	return (
 		<Fragment>
 			<QuestionType />
 			<CustomDivider />
-			<CustomDivider children="Customer Information" />
+			<CustomerInformation />
+			<MultiLanguages />
 		</Fragment>
 	);
 };
-export { QuestionType } from "./QuestionType";
