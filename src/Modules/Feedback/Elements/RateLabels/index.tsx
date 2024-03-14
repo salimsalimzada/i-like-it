@@ -1,4 +1,4 @@
-import { Input, Space } from "antd";
+import { Input, Space, Switch } from "antd";
 import { cloneDeep, isEmpty } from "lodash";
 import { ChangeEventHandler, useEffect, useState } from "react";
 
@@ -11,7 +11,7 @@ import {
 } from "../../helpers";
 import { EmojiAndLabelType, RateOptionsType } from "../../types";
 import styles from "./RateLabelsStyle.module.css";
-export const RateLabel = () => {
+export const RateLabels = () => {
 	const [labels, setLabels] = useState<EmojiAndLabelType[]>([]);
 	const [feedbackState, setFeedbackState] = useStore(feedBackStore);
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
@@ -67,18 +67,23 @@ export const RateLabel = () => {
 	return (
 		<>
 			<Space className={styles.rateLabelContainer}>
-				<h5 className={styles.labelTitle}>Rate Labels</h5>
+				<div className={styles.rateLabelHeader}>
+					<h5 className={styles.labelTitle}>Rate Labels</h5>
+					<Switch defaultChecked />
+				</div>
 				<div className={styles.inputWrapper}>
 					{labels?.map((item) => (
-						<Input
-							className={styles.inputField}
-							data-key={item.key}
-							key={item.key}
-							onChange={handleChange}
-							placeholder="Write whatever you want"
-							prefix={<item.icon className={styles.icon} />}
-							value={item.label}
-						/>
+						<Space.Compact size="large">
+							<Input
+								addonBefore={<item.icon color="#878484" size={23} />}
+								className={styles.inputField}
+								data-key={item.key}
+								key={item.key}
+								onChange={handleChange}
+								placeholder="Write whatever you want"
+								value={item.label}
+							/>
+						</Space.Compact>
 					))}
 				</div>
 			</Space>

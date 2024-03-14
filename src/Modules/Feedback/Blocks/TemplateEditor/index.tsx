@@ -1,4 +1,6 @@
 import { Space } from "antd";
+import { CiEdit, CiSettings } from "react-icons/ci";
+import { TbCloudDataConnection } from "react-icons/tb";
 
 import { CustomTabs } from "../../../../Components/CustomTabs";
 import ErrorBoundary from "../../../../Components/ErrorBoundary";
@@ -10,23 +12,23 @@ import styles from "./TemplateEditorStyle.module.css";
 export const TemplateEditor = () => {
 	const items = [
 		{
-			children: (
+			content: (
 				<ErrorBoundary>
 					<CustomFunctionality />
 				</ErrorBoundary>
 			),
+			icon: <CiEdit />,
 			key: "1",
-			label: "Tab 1",
 		},
 		{
-			children: <Settings />,
+			content: <Settings />,
+			icon: <CiSettings />,
 			key: "2",
-			label: "Tab 2",
 		},
 		{
-			children: <Connection />,
+			content: <Connection />,
+			icon: <TbCloudDataConnection />,
 			key: "3",
-			label: "Tab 3",
 		},
 	];
 	return (

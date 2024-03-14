@@ -15,3 +15,4 @@ I need to write some more here
 - too much repeation especially while setting to store +
 - ErrorBoundary +
 - handling empty/not related state in Template Editor +
+- refactor your functions
