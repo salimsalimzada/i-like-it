@@ -15,6 +15,11 @@ export type StrokePositionType = {
 	label: string;
 };
 
+export type SmileyPositionType = {
+	icon: IconType;
+	label: string;
+};
+
 export type RateOptionsKeys = "1" | "2" | "3" | "4";
 
 export type RateOptionsType = Record<RateOptionsKeys, EmojiAndLabelType[]>;
@@ -22,8 +27,10 @@ export type RateOptionsType = Record<RateOptionsKeys, EmojiAndLabelType[]>;
 export type SmileyRatingDefaultPropsType = {
 	color: string;
 	defaultRateValue: string;
+	defaultSmileyPosition: string;
 	defaultStrokePosition: string;
 	rateOptions: RateOptionsType;
+	smileyPosition: SmileyPositionType[];
 	strokePosition: StrokePositionType[];
 	watchMode: boolean;
 };

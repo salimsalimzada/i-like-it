@@ -2,6 +2,8 @@
 	text-transform: uppercase;
 	font-weight: bold !important;
 	color: rgb(196, 193, 193) !important;
+	flex-grow: 1;
+	margin: 0;
 }
 
 .customDividerStyle::before {
