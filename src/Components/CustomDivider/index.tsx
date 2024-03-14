@@ -13,7 +13,7 @@ export const CustomDivider: FC<PropsWithChildren<CustomDividerType>> = ({
 	return (
 		<Fragment>
 			<Divider className={styles.customDividerStyle} orientation={orientation}>
-				{children}
+				<div className={styles.customDividerContent}>{children}</div>
 			</Divider>
 		</Fragment>
 	);

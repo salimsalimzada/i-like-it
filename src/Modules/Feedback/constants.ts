@@ -1,4 +1,7 @@
 import {
+	FaAlignCenter,
+	FaAlignLeft,
+	FaAlignRight,
 	FaRegFaceFrown,
 	FaRegFaceGrinStars,
 	FaRegFaceMeh,
@@ -29,6 +32,7 @@ export const QUESTION_TYPE_LIST = [
 		defaultProps: {
 			color: "rgb(23, 53, 162)",
 			defaultRateValue: "1",
+			defaultSmileyPosition: "space-between",
 			defaultStrokePosition: "borderLeft",
 			rateOptions: {
 				"1": [
@@ -55,6 +59,20 @@ export const QUESTION_TYPE_LIST = [
 					{ icon: FaRegFaceMehBlank, key: uuidv4(), label: "Unacceptable" },
 				],
 			},
+			smileyPosition: [
+				{
+					icon: FaAlignLeft,
+					label: "left",
+				},
+				{
+					icon: FaAlignCenter,
+					label: "center",
+				},
+				{
+					icon: FaAlignRight,
+					label: "right",
+				},
+			],
 			strokePosition: [
 				{ icon: MdBorderAll, label: "border" },
 				{ icon: MdBorderRight, label: "borderRight" },

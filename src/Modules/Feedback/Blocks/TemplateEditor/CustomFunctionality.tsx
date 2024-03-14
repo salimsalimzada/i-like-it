@@ -3,10 +3,10 @@ import { Fragment } from "react/jsx-runtime";
 
 import { feedBackStore } from "../../../../Stores/feedbackStore";
 import { useStoreValue } from "../../../../Stores/store";
+import { AdvancedSettings } from "../../Elements/AdvancedSettings";
 import { MarkPages } from "../../Elements/MarkPages";
 import { RateLabels } from "../../Elements/RateLabels";
 import { RateOptions } from "../../Elements/RateOptions";
-import { StrokePosition } from "../../Elements/StrokePosition";
 import {
 	getFirstArrayElementFromStore,
 	getObjectWithWatchModeTrueProperty,
@@ -25,7 +25,7 @@ export const CustomFunctionality = () => {
 					<RateOptions />
 					<RateLabels />
 					<MarkPages />
-					<StrokePosition />
+					<AdvancedSettings />
 				</>
 			)}
 		</Fragment>

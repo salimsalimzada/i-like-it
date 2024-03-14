@@ -21,8 +21,13 @@ export const CardItem: FC<
 > = ({ cardTitle, defaultProps, emptyLabel, handleDelete, id, provided }) => {
 	const [feedbackState, setFeedbackState] = useStore(feedBackStore);
 	const [selectedIconKey, setSelectedIconKey] = useState<null | string>(null);
-	const { defaultRateValue, defaultStrokePosition, rateOptions, watchMode } =
-		defaultProps ?? {};
+	const {
+		defaultRateValue,
+		defaultSmileyPosition,
+		defaultStrokePosition,
+		rateOptions,
+		watchMode,
+	} = defaultProps ?? {};
 	const [_, rateOptionList] =
 		Object.entries(rateOptions ?? {}).find(
 			([key]) => key === defaultRateValue,
@@ -59,6 +64,7 @@ export const CardItem: FC<
 	const handleClick = (key: string) => {
 		setSelectedIconKey((prevKey) => (prevKey !== key ? key : null));
 	};
+	console.log(defaultSmileyPosition, "defaultSmileyPosition");
 
 	return (
 		<>
@@ -88,7 +94,7 @@ export const CardItem: FC<
 					title={<span className={styles.cardHeaderTitle}>{cardTitle}</span>}
 				>
 					<Card
-						className={styles.cardItem}
+						className={`${styles.cardItem}  ${!(defaultSmileyPosition === "space-between") && styles[defaultSmileyPosition ?? ""]}  `}
 						style={{
 							[`${defaultStrokePosition}`]: `5px solid blue`,
 						}}

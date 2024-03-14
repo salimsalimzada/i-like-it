@@ -50,11 +50,28 @@
 }
 
 .iconItem {
-	font-size: 2.325rem;
+	font-size: 1.85rem;
 }
 
 .iconLabel {
 	font-size: 1.125rem;
 	color: rgb(140, 135, 135);
 	font-weight: 500;
+}
+
+.left > div {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.right > div {
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+}
+
+.center > div {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 }
