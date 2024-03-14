@@ -38,7 +38,7 @@ export const CustomerInformation = () => {
 				)}
 			</Droppable>
 			<div style={{ margin: "1.5rem 0" }}>
-				<CustomButton children="See More" type="default" />
+				<CustomButton children="See More" type="default" width="100%" />
 			</div>
 		</Fragment>
 	);

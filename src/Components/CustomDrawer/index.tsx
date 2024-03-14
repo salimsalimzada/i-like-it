@@ -18,20 +18,22 @@ export const CustomDrawer: FC<PropsWithChildren<DrawerType>> = ({
 }) => {
 	return (
 		<>
-			<Drawer
-				className={
-					iconPosition === "right"
-						? `${styles.drawerModifiedCloseBtn} ${styles.drawerWrapper}`
-						: `${styles.drawerDefaultCloseBtn} ${styles.drawerWrapper}`
-				}
-				getContainer={false}
-				open={true}
-				placement={placement}
-				title={<span className={styles.drawerTitle}>{title}</span>}
-				width={width}
-			>
-				<div>{children}</div>
-			</Drawer>
+			<div style={{ height: "100%" }}>
+				<Drawer
+					className={
+						iconPosition === "right"
+							? `${styles.drawerModifiedCloseBtn} ${styles.drawerWrapper}`
+							: `${styles.drawerDefaultCloseBtn} ${styles.drawerWrapper}`
+					}
+					getContainer={false}
+					open={true}
+					placement={placement}
+					title={<span className={styles.drawerTitle}>{title}</span>}
+					width={width}
+				>
+					{children}
+				</Drawer>
+			</div>
 		</>
 	);
 };

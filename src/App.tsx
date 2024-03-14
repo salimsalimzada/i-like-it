@@ -13,7 +13,6 @@ import { QuestionListType } from "./Modules/Feedback/types";
 import { feedBackStore } from "./Stores/feedbackStore";
 import { useStore } from "./Stores/store";
 
-const { Content } = Layout;
 function App() {
 	const [feedBackState, setFeedBackState] = useStore(feedBackStore);
 	const onDragEnd = (result: DropResult) => {
@@ -52,12 +51,7 @@ function App() {
 			<ErrorBoundary>
 				<Layout>
 					<CustomHeader />
-					<Row
-						gutter={[16, 24]}
-						style={{
-							minHeight: "100vh",
-						}}
-					>
+					<Row gutter={[16, 24]} style={{ height: "100vh" }}>
 						<DragDropContext onDragEnd={onDragEnd}>
 							<ErrorBoundary>
 								<Col span={7}>
@@ -73,9 +67,7 @@ function App() {
 							</ErrorBoundary>
 							<ErrorBoundary>
 								<Col span={10}>
-									<Content>
-										<Widget />
-									</Content>
+									<Widget />
 								</Col>
 							</ErrorBoundary>
 						</DragDropContext>

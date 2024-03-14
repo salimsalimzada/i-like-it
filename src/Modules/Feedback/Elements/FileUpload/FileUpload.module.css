@@ -7,6 +7,8 @@
 }
 
 .defaultTitle {
-	font-size: 1rem;
+	font-size: 1.5rem;
 	margin: 0.5rem 0;
+	line-height: 1.125;
+	color: rgb(92, 93, 94);
 }

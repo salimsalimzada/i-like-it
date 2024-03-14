@@ -9,6 +9,7 @@ type CustomButtonType = {
 	isLoading?: boolean;
 	style?: CSSProperties;
 	type?: BaseButtonProps["type"];
+	width?: string;
 };
 export const CustomButton: FC<PropsWithChildren<CustomButtonType>> = ({
 	alignment,
@@ -17,13 +18,18 @@ export const CustomButton: FC<PropsWithChildren<CustomButtonType>> = ({
 	isLoading,
 	style = {},
 	type,
+	width = "",
 }) => {
 	return (
 		<Button
 			className={styles.customBtnStyle}
 			icon={<span className={styles.icon}>{icon}</span>}
 			loading={isLoading}
-			style={{ textAlign: alignment ?? "center", ...style }}
+			style={{
+				textAlign: alignment ?? "center",
+				width: width,
+				...style,
+			}}
 			type={type}
 		>
 			{children}

@@ -9,20 +9,27 @@ export const SurveyBlock = () => {
 	return (
 		<Fragment>
 			<div className={styles.surveyBlockContainer}>
-				<div className={styles.pageTitle}>
-					Page 1
-					<span className={styles.editIcon}>
-						<CiEdit />{" "}
-					</span>
+				<div className={styles.surveyBlockWrapper}>
+					<div className={styles.pageTitle}>
+						Page 1
+						<span className={styles.editIcon}>
+							<CiEdit />{" "}
+						</span>
+					</div>
+					<div className={styles.fileUploadContainer}>
+						<FileUpload />
+					</div>
+					<div className={styles.dragAndDropContainer}>
+						<CardList />
+					</div>
+					<div className={styles.submitBtn}>
+						<CustomButton children="Submit" type="primary" />
+					</div>
 				</div>
-				<div className={styles.fileUploadContainer}>
-					<FileUpload />
-				</div>
-				<div className={styles.dragAndDropContainer}>
-					<CardList />
-				</div>
-				<div className={styles.submitBtn}>
-					<CustomButton children="Submit" />
+				<div className={styles.footerBar}>
+					<p>
+						Powered by <span className={styles.companyTitle}>Qmeter</span>
+					</p>
 				</div>
 			</div>
 		</Fragment>

@@ -13,11 +13,17 @@ export const MultiLanguages = () => {
 				icon={<CiCirclePlus />}
 				style={{ marginBottom: ".75rem" }}
 				type="default"
+				width="100%"
 			>
 				English
 			</CustomButton>
 
-			<CustomButton alignment="left" icon={<CiCirclePlus />} type="default">
+			<CustomButton
+				alignment="left"
+				icon={<CiCirclePlus />}
+				type="default"
+				width="100%"
+			>
 				Add new language
 			</CustomButton>
 		</Fragment>
