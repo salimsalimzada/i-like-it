@@ -1,13 +1,23 @@
-import { Col, Layout, Row } from "antd";
+import { Col, Layout, Row, Tooltip } from "antd";
 import { Fragment } from "react/jsx-runtime";
 import { CiEdit } from "react-icons/ci";
+import { MdOutlineMenuOpen } from "react-icons/md";
 
 import { CustomButton } from "..";
+import { drawerStatus } from "../../Stores/generalStore";
+import { useStore } from "../../Stores/store";
 import styles from "./CustomHeader.module.css";
 
 const { Header } = Layout;
 
 export const CustomHeader = () => {
+	const [_, setGeneralState] = useStore(drawerStatus);
+	const closeBothDrawers = () => {
+		setGeneralState({
+			leftDrawerOpen: true,
+			rightDrawerOpen: true,
+		});
+	};
 	return (
 		<Fragment>
 			<Header className={styles.headerContainer}>
@@ -21,6 +31,11 @@ export const CustomHeader = () => {
 							<p>
 								Task Template
 								<CiEdit className={styles.editIcon} />
+								<Tooltip placement="bottom" title={"Open Drawers"}>
+									<i className={styles.menuOpenIcon} onClick={closeBothDrawers}>
+										<MdOutlineMenuOpen />
+									</i>
+								</Tooltip>
 							</p>
 						</div>
 					</Col>

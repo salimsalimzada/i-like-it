@@ -42,3 +42,8 @@ export type SmileyRatingDefaultPropsType = {
 };
 
 export type QuestionListStoreType = Record<string, QuestionListType>;
+
+export type DrawerStatusObject = {
+	leftDrawerOpen: boolean;
+	rightDrawerOpen: boolean;
+};

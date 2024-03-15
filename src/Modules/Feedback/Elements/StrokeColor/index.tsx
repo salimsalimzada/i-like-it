@@ -1,5 +1,3 @@
-import { ColorPicker } from "antd";
-import { ColorValueType } from "antd/es/color-picker/interface";
 import { cloneDeep } from "lodash";
 import { useEffect, useState } from "react";
 import { IoAddCircleOutline } from "react-icons/io5";
@@ -21,7 +19,7 @@ export const StrokeColor = () => {
 	const data = getObjectWithWatchModeTrueProperty(feedbackStateList);
 	console.log(data, "data hola");
 	const [defaultColor, setDefaultColor] = useState("#007bff");
-	const handleStrokecolorChange = (color: ColorValueType) => {
+	const handleStrokecolorChange = (color: string) => {
 		setDefaultColor(color);
 		const [key] = getKeyFromStore(feedbackState);
 		const modifiedLabelList = cloneDeep(feedbackStateList)?.map((item) => {
@@ -58,16 +56,9 @@ export const StrokeColor = () => {
 					return (
 						<>
 							{isCustomColor ? (
-								<ColorPicker
-									key={index}
-									onChange={handleStrokecolorChange}
-									placement="topLeft"
-									value={defaultColor}
-								>
-									<IoAddCircleOutline
-										className={`${styles.colorItem}  ${item.value === defaultColor ? styles.watchMode : ""}`}
-									/>
-								</ColorPicker>
+								<IoAddCircleOutline
+									className={`${styles.colorItem}  ${item.value === defaultColor ? styles.watchMode : ""}`}
+								/>
 							) : (
 								<span
 									className={`${styles.colorItem}  ${item.value === defaultColor ? styles.watchMode : ""}`}

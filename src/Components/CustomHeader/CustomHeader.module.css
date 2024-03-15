@@ -10,6 +10,7 @@
 	font-weight: 500;
 	margin: 0;
 	padding-left: 1.125rem;
+	cursor: pointer;
 }
 
 .editIcon {
@@ -19,6 +20,12 @@
 	margin-left: 0.125rem;
 }
 
+.menuOpenIcon {
+	font-size: 1.55rem;
+	margin-left: 0.5rem;
+	vertical-align: -webkit-baseline-middle;
+	color: rgb(68, 93, 54);
+}
 .topCenterBarContent {
 	display: flex;
 	justify-content: center;
@@ -43,7 +50,35 @@
 	justify-content: space-between;
 }
 
-@media (max-width: 992px) {
+/* Smallest viewport size */
+@media (max-width: 576px) {
+	.topLeftBarContent > p {
+		font-size: 1rem;
+		padding-left: 0.4rem;
+		font-weight: bold;
+	}
+	.editIcon {
+		font-size: 1.5rem;
+		margin-left: 0.125rem;
+	}
+	.navWrapper {
+		display: none;
+	}
+	.topRightBarContent > button {
+		flex-basis: 23%;
+		font-size: 0.75rem;
+		line-height: 0.8rem;
+		min-height: 2rem;
+	}
+}
+
+@media (max-width: 376px) {
+	.topRightBarContent > button {
+		display: none;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
 	.topLeftBarContent > p {
 		font-size: 0.85rem;
 		padding-left: 0.6rem;
@@ -61,30 +96,17 @@
 		font-weight: bold;
 	}
 	.topRightBarContent > button {
-		flex-basis: 23%;
-		padding: 0;
-		font-size: 0.75rem;
-		line-height: 0.8rem;
-		min-height: 2rem;
-	}
-}
-@media (max-width: 576px) {
-	.topLeftBarContent > p {
-		font-size: 0.65rem;
-		padding-left: 0.4rem;
+		padding: 0.5px;
+		margin-inline-end: 0;
+		font-size: 0.5rem;
+		line-height: 0;
 		font-weight: bold;
-	}
-	.editIcon {
-		font-size: 0.7rem;
-		margin-left: 0.125rem;
-	}
-
-	.navWrapper {
-		display: none;
+		min-height: 1.5rem;
 	}
 }
 
-@media (min-width: 992px) {
+/* Medium to large viewport sizes */
+@media (min-width: 992px) and (max-width: 1200px) {
 	.topLeftBarContent > p {
 		font-size: 1rem;
 		padding-left: 1rem;
@@ -93,20 +115,19 @@
 		font-size: 1.25rem;
 		margin-left: 0.125rem;
 	}
-
 	.navWrapper {
 		width: 100%;
 	}
 	.navWrapper li {
 		font-size: 0.8rem;
 	}
-
 	.topRightBarContent > button {
 		flex-basis: 25%;
 		padding: 1px;
 	}
 }
 
+/* Largest viewport size */
 @media (min-width: 1200px) {
 	.editIcon {
 		font-size: 1.6rem;
@@ -115,7 +136,6 @@
 	.navWrapper {
 		width: 60%;
 	}
-
 	.topRightBarContent {
 		display: flex;
 		align-items: center;
