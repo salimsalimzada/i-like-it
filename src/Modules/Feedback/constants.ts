@@ -74,13 +74,12 @@ export const QUESTION_TYPE_LIST = [
 				},
 			],
 			strokeColors: [
-				{ label: "blue", value: "#007bff" },
-				{ label: "green", value: "#28a745" },
-				{ label: "red", value: "#dc3545" },
-				{ label: "yellow", value: "#ffc107" },
+				{ label: "slim-blue", value: "#7FC7D9" },
+				{ label: "slimgreen", value: "#BFEA7C" },
 				{ label: "cyan", value: "#17a2b8" },
-				{ label: "purple", value: "#6610f2" },
-				{ label: "orange", value: "#fd7e14" },
+				{ label: "charcoalgray", value: "#36454F" },
+				{ label: "ashgray", value: "#50727B" },
+				{ label: "slategray", value: "#607274" },
 				{ label: "custom", value: "" },
 			],
 			strokePosition: [

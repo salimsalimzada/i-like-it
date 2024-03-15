@@ -67,6 +67,7 @@ function App() {
 							</ErrorBoundary>
 							<ErrorBoundary>
 								<Col span={10}>
+									{/* implementing routing to different pages */}
 									<Widget />
 								</Col>
 							</ErrorBoundary>

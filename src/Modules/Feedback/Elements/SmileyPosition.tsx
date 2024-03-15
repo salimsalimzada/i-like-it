@@ -16,7 +16,7 @@ export const SmileyPosition = () => {
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
 	const data = getObjectWithWatchModeTrueProperty(feedbackStateList);
 
-	const [defaultSmileyPosition, setDefaultSmileyPosition] = useState("center");
+	const [defaultSmileyPosition, setDefaultSmileyPosition] = useState("");
 	const handleSmileyPositionChange = (position: string) => {
 		console.log(position, "position");
 		setDefaultSmileyPosition(position);

@@ -1,0 +1,17 @@
+.strokeColorContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.colorItem {
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.watchMode {
+	box-shadow: hwb(0 13% 87% / 0.302) 0px 0px 0px 3px;
+}
