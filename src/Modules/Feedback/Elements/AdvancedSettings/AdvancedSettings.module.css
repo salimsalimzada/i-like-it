@@ -1,0 +1,26 @@
+.labelWrapper {
+	text-align: center;
+	margin-top: 0.8rem;
+	text-transform: uppercase;
+}
+
+.labelWrapper::before,
+.labelWrapper::after {
+	content: "";
+	border-block-start: 3px solid red;
+}
+
+.label {
+	font-size: 0.975rem;
+}
+
+.label,
+.icon {
+	font-weight: 600;
+	color: rgb(196, 193, 193);
+}
+
+.icon {
+	font-size: 1.5rem;
+	vertical-align: middle;
+}

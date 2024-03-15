@@ -1,10 +1,11 @@
 import { Divider, DividerProps } from "antd";
-import { FC, Fragment, PropsWithChildren } from "react";
+import { CSSProperties, FC, Fragment, PropsWithChildren } from "react";
 
 import styles from "./CustomDivider.module.css";
 
 type CustomDividerType = {
 	orientation?: DividerProps["orientation"];
+	style?: CSSProperties;
 };
 export const CustomDivider: FC<PropsWithChildren<CustomDividerType>> = ({
 	children,
@@ -13,7 +14,7 @@ export const CustomDivider: FC<PropsWithChildren<CustomDividerType>> = ({
 	return (
 		<Fragment>
 			<Divider className={styles.customDividerStyle} orientation={orientation}>
-				<div className={styles.customDividerContent}>{children}</div>
+				{children}
 			</Divider>
 		</Fragment>
 	);
