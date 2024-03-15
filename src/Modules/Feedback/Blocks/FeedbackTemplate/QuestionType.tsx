@@ -2,8 +2,8 @@ import { Col, Row } from "antd";
 import { Fragment } from "react/jsx-runtime";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
-import { CustomDivider, CustomIconBox } from "../../../../Components";
-import { QUESTION_TYPE_LIST } from "../../constants";
+import { CustomDivider, CustomIconBox } from "~/Components";
+import { QUESTION_TYPE_LIST } from "~/Modules/Feedback/constants";
 
 export const QuestionType = () => {
 	return (

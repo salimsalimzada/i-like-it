@@ -4,10 +4,17 @@ import { cloneDeep } from "lodash";
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import { DraggableProvided } from "react-beautiful-dnd";
 
-import { feedBackStore } from "../../../../Stores/feedbackStore";
-import { useStore } from "../../../../Stores/store";
-import { getFirstArrayElementFromStore, getKeyFromStore } from "../../helpers";
-import { QuestionListType, SmileyRatingDefaultPropsType } from "../../types";
+import {
+	getFirstArrayElementFromStore,
+	getKeyFromStore,
+} from "~/Modules/Feedback/helpers";
+import {
+	QuestionListType,
+	SmileyRatingDefaultPropsType,
+} from "~/Modules/Feedback/types";
+import { feedBackStore } from "~/Stores/feedbackStore";
+import { useStore } from "~/Stores/store";
+
 import styles from "./CardItem.module.css";
 export const CardItem: FC<
 	PropsWithChildren<{
@@ -34,22 +41,27 @@ export const CardItem: FC<
 		) ?? [];
 
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
-	const watchCard = (id?: string) => {
-		const [key] = getKeyFromStore(feedbackState);
+	const operations = {
+		handleClick: (key: string) => {
+			setSelectedIconKey((prevKey) => (prevKey !== key ? key : null));
+		},
+		watchCard: (id?: string) => {
+			const [key] = getKeyFromStore(feedbackState);
 
-		const modifiedFeedbackList = cloneDeep(feedbackStateList).map(
-			(item: QuestionListType[number]) => ({
-				...item,
-				defaultProps: {
-					...cloneDeep(item.defaultProps),
-					watchMode: item.id === id,
-				},
-			}),
-		);
+			const modifiedFeedbackList = cloneDeep(feedbackStateList).map(
+				(item: QuestionListType[number]) => ({
+					...item,
+					defaultProps: {
+						...cloneDeep(item.defaultProps),
+						watchMode: item.id === id,
+					},
+				}),
+			);
 
-		setFeedbackState({
-			[key]: modifiedFeedbackList as QuestionListType,
-		});
+			setFeedbackState({
+				[key]: modifiedFeedbackList as QuestionListType,
+			});
+		},
 	};
 	useEffect(() => {
 		if (
@@ -57,14 +69,9 @@ export const CardItem: FC<
 			!feedbackStateList[0].defaultProps.watchMode
 		) {
 			const singleCardId = feedbackStateList[0].id;
-			watchCard(singleCardId);
+			operations.watchCard(singleCardId);
 		}
 	}, [feedbackStateList]);
-
-	const handleClick = (key: string) => {
-		setSelectedIconKey((prevKey) => (prevKey !== key ? key : null));
-	};
-	console.log(defaultSmileyPosition, "defaultSmileyPosition");
 
 	return (
 		<>
@@ -89,7 +96,7 @@ export const CardItem: FC<
 							</span>
 						</div>
 					}
-					onClick={() => watchCard?.(id)}
+					onClick={() => operations.watchCard?.(id)}
 					style={watchMode ? { border: "4px solid #B0C5A4" } : {}}
 					title={<span className={styles.cardHeaderTitle}>{cardTitle}</span>}
 				>
@@ -104,7 +111,7 @@ export const CardItem: FC<
 							<div className={styles.rateOptionListWrapper} key={item.key}>
 								<i
 									className={styles.iconItem}
-									onClick={() => handleClick(item.key)}
+									onClick={() => operations.handleClick(item.key)}
 									style={{
 										color:
 											selectedIconKey === item.key

@@ -1,8 +1,9 @@
 import { Fragment } from "react/jsx-runtime";
 import { CiEdit } from "react-icons/ci";
 
-import { CustomButton } from "../../../../Components";
-import { FileUpload } from "../../Elements/FileUpload";
+import { CustomButton } from "~/Components";
+import { FileUpload } from "~/Modules/Feedback/Elements/FileUpload";
+
 import { CardList } from "./CardList";
 import styles from "./SurveyBlock.module.css";
 export const SurveyBlock = () => {
@@ -13,7 +14,7 @@ export const SurveyBlock = () => {
 					<div className={styles.pageTitle}>
 						Page 1
 						<span className={styles.editIcon}>
-							<CiEdit />{" "}
+							<CiEdit />
 						</span>
 					</div>
 					<div className={styles.fileUploadContainer}>

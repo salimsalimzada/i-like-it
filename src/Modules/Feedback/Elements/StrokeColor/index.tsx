@@ -2,14 +2,15 @@ import { cloneDeep } from "lodash";
 import { useEffect, useState } from "react";
 import { IoAddCircleOutline } from "react-icons/io5";
 
-import { CustomDivider } from "../../../../Components";
-import { feedBackStore } from "../../../../Stores/feedbackStore";
-import { useStore } from "../../../../Stores/store";
+import { CustomDivider } from "~/Components";
 import {
 	getFirstArrayElementFromStore,
 	getKeyFromStore,
 	getObjectWithWatchModeTrueProperty,
-} from "../../helpers";
+} from "~/Modules/Feedback/helpers";
+import { feedBackStore } from "~/Stores/feedbackStore";
+import { useStore } from "~/Stores/store";
+
 import styles from "./StrokeColor.module.css";
 
 export const StrokeColor = () => {
@@ -17,7 +18,6 @@ export const StrokeColor = () => {
 
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
 	const data = getObjectWithWatchModeTrueProperty(feedbackStateList);
-	console.log(data, "data hola");
 	const [defaultColor, setDefaultColor] = useState("#007bff");
 	const handleStrokecolorChange = (color: string) => {
 		setDefaultColor(color);

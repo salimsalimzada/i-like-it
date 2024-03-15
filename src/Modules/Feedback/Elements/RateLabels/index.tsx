@@ -2,14 +2,15 @@ import { Input, Space, Switch } from "antd";
 import { cloneDeep, isEmpty } from "lodash";
 import { ChangeEventHandler, useEffect, useState } from "react";
 
-import { feedBackStore } from "../../../../Stores/feedbackStore";
-import { useStore } from "../../../../Stores/store";
 import {
 	getFirstArrayElementFromStore,
 	getKeyFromStore,
 	getObjectWithWatchModeTrueProperty,
-} from "../../helpers";
-import { EmojiAndLabelType, RateOptionsType } from "../../types";
+} from "~/Modules/Feedback/helpers";
+import { EmojiAndLabelType, RateOptionsType } from "~/Modules/Feedback/types";
+import { feedBackStore } from "~/Stores/feedbackStore";
+import { useStore } from "~/Stores/store";
+
 import styles from "./RateLabelsStyle.module.css";
 export const RateLabels = () => {
 	const [labels, setLabels] = useState<EmojiAndLabelType[]>([]);
@@ -37,7 +38,6 @@ export const RateLabels = () => {
 	const handleChange: ChangeEventHandler<HTMLInputElement> = (
 		event: React.ChangeEvent<HTMLInputElement>,
 	) => {
-		console.log("loool");
 		const modifiedLabels = labels.map((item) =>
 			item.key === event.target.dataset.key
 				? { ...item, label: event.target.value }

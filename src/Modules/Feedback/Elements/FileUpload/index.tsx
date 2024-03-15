@@ -1,7 +1,8 @@
 import { Upload } from "antd";
 import React, { useState } from "react";
 
-import { CustomButton } from "../../../../Components";
+import { CustomButton } from "~/Components";
+
 import styles from "./FileUpload.module.css";
 
 export const FileUpload: React.FC = () => {

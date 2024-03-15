@@ -18,42 +18,44 @@ function App() {
 	const [feedBackState, setFeedBackState] = useStore(feedBackStore);
 	const [drawerState, setDrawerState] = useStore(drawerStatus);
 
-	const toggleDrawer = (drawerVal: string) => {
-		setDrawerState({
-			...drawerState,
-			[drawerVal]: !drawerState[drawerVal as keyof DrawerStatusObject],
-		});
-	};
-	const onDragEnd = (result: DropResult) => {
-		const { destination, source } = result;
-		if (!destination) return;
-		switch (source.droppableId) {
-			case destination.droppableId:
-				setFeedBackState({
-					...feedBackState,
-					[destination.droppableId]: reorderItems(
-						feedBackState[source.droppableId] as QuestionListType,
-						source.index,
-						destination.index,
-					),
-				});
-				break;
-			case "QUESTION_TYPE_LIST":
-				setFeedBackState({
-					...feedBackState,
-					[destination.droppableId]: copyItems(
-						QUESTION_TYPE_LIST,
-						feedBackState[destination.droppableId] as QuestionListType,
-						source,
-						destination,
-					),
-				});
+	const operations = {
+		onDragEnd: (result: DropResult) => {
+			const { destination, source } = result;
+			if (!destination) return;
+			switch (source.droppableId) {
+				case destination.droppableId:
+					setFeedBackState({
+						...feedBackState,
+						[destination.droppableId]: reorderItems(
+							feedBackState[source.droppableId] as QuestionListType,
+							source.index,
+							destination.index,
+						),
+					});
+					break;
+				case "QUESTION_TYPE_LIST":
+					setFeedBackState({
+						...feedBackState,
+						[destination.droppableId]: copyItems(
+							QUESTION_TYPE_LIST,
+							feedBackState[destination.droppableId] as QuestionListType,
+							source,
+							destination,
+						),
+					});
 
-				break;
-			default:
-				feedBackState;
-				break;
-		}
+					break;
+				default:
+					feedBackState;
+					break;
+			}
+		},
+		toggleDrawer: (drawerVal: string) => {
+			setDrawerState({
+				...drawerState,
+				[drawerVal]: !drawerState[drawerVal as keyof DrawerStatusObject],
+			});
+		},
 	};
 
 	return (
@@ -62,12 +64,12 @@ function App() {
 				<Layout>
 					<CustomHeader />
 					<Row gutter={[16, 24]} justify="center" style={{ height: "100vh" }}>
-						<DragDropContext onDragEnd={onDragEnd}>
+						<DragDropContext onDragEnd={operations.onDragEnd}>
 							<ErrorBoundary>
 								<Col lg={7} md={5} sm={4}>
 									<CustomDrawer
 										iconPosition="right"
-										onClose={() => toggleDrawer("leftDrawerOpen")}
+										onClose={() => operations.toggleDrawer("leftDrawerOpen")}
 										open={drawerState.leftDrawerOpen}
 										placement="left"
 										title="Feedback template"
@@ -88,7 +90,7 @@ function App() {
 							<Col lg={7} md={5} sm={4}>
 								<CustomDrawer
 									iconPosition="right"
-									onClose={() => toggleDrawer("rightDrawerOpen")}
+									onClose={() => operations.toggleDrawer("rightDrawerOpen")}
 									open={drawerState.rightDrawerOpen}
 									placement="right"
 									title="Template Editor"

@@ -2,14 +2,14 @@ import { Radio, RadioChangeEvent, Space } from "antd";
 import { cloneDeep, isArray, isEmpty } from "lodash";
 import { Fragment } from "react/jsx-runtime";
 
-import { CustomDivider } from "../../../../Components";
-import { feedBackStore } from "../../../../Stores/feedbackStore";
-import { useStore } from "../../../../Stores/store";
+import { CustomDivider } from "~/Components";
 import {
 	getDefaultRateValue,
 	getFirstArrayElementFromStore,
 	getKeyFromStore,
-} from "../../helpers";
+} from "~/Modules/Feedback/helpers";
+import { feedBackStore } from "~/Stores/feedbackStore";
+import { useStore } from "~/Stores/store";
 
 export const RateOptions = () => {
 	const [feedbackState, setFeedbackState] = useStore(feedBackStore);

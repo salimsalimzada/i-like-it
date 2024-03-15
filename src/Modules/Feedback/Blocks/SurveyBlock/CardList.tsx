@@ -2,25 +2,24 @@ import { Space } from "antd";
 import { Fragment } from "react/jsx-runtime";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
-import { feedBackStore } from "../../../../Stores/feedbackStore";
-import { useStore } from "../../../../Stores/store";
-import { CardItem } from "../../Elements/CardItem";
-import { QuestionListType } from "../../types";
+import { CardItem } from "~/Modules/Feedback/Elements/CardItem";
+import { QuestionListType } from "~/Modules/Feedback/types";
+import { feedBackStore } from "~/Stores/feedbackStore";
+import { useStore } from "~/Stores/store";
+
 import styles from "./SurveyBlock.module.css";
 export const CardList = () => {
 	const [feedBackState, setFeedBackState] = useStore(feedBackStore);
 	const handleDelete = (id?: string) => {
 		if (id) {
-			if (id) {
-				const key = Object.keys(feedBackState)?.[0];
-				const filteredData = Object.values(feedBackState)?.[0]?.filter(
-					(item: QuestionListType[number]) => item.id !== id,
-				);
-				setFeedBackState({
-					...feedBackState,
-					[key]: filteredData,
-				});
-			}
+			const key = Object.keys(feedBackState)?.[0];
+			const filteredData = Object.values(feedBackState)?.[0]?.filter(
+				(item: QuestionListType[number]) => item.id !== id,
+			);
+			setFeedBackState({
+				...feedBackState,
+				[key]: filteredData,
+			});
 		}
 	};
 	return (

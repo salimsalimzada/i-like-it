@@ -2,7 +2,7 @@ import { Select, Space } from "antd";
 import { Fragment } from "react/jsx-runtime";
 import { IoIosArrowForward } from "react-icons/io";
 
-import { CustomDivider } from "../../../Components";
+import { CustomDivider } from "~/Components";
 
 export const MarkPages = () => {
 	return (

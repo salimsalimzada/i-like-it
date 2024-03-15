@@ -2,12 +2,8 @@ import { Col, Row } from "antd";
 import { Fragment } from "react/jsx-runtime";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
-import {
-	CustomButton,
-	CustomDivider,
-	CustomIconBox,
-} from "../../../../Components";
-import { CUSTOMER_INFROMATION_LIST } from "../../constants";
+import { CustomButton, CustomDivider, CustomIconBox } from "~/Components";
+import { CUSTOMER_INFROMATION_LIST } from "~/Modules/Feedback/constants";
 
 export const CustomerInformation = () => {
 	return (

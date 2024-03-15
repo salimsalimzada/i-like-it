@@ -3,9 +3,10 @@ import { Fragment } from "react/jsx-runtime";
 import { CiEdit } from "react-icons/ci";
 import { MdOutlineMenuOpen } from "react-icons/md";
 
+import { drawerStatus } from "~/Stores/generalStore";
+import { useStore } from "~/Stores/store";
+
 import { CustomButton } from "..";
-import { drawerStatus } from "../../Stores/generalStore";
-import { useStore } from "../../Stores/store";
 import styles from "./CustomHeader.module.css";
 
 const { Header } = Layout;

@@ -2,8 +2,9 @@ import { Space } from "antd";
 import { CiEdit, CiSettings } from "react-icons/ci";
 import { TbCloudDataConnection } from "react-icons/tb";
 
-import { CustomTabs } from "../../../../Components/CustomTabs";
-import ErrorBoundary from "../../../../Components/ErrorBoundary";
+import { CustomTabs } from "~/Components/CustomTabs";
+import ErrorBoundary from "~/Components/ErrorBoundary";
+
 import { Connection } from "./Connection";
 import { CustomFunctionality } from "./CustomFunctionality";
 import { Settings } from "./Settings";

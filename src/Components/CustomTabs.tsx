@@ -15,15 +15,18 @@ type CustomTabsType = {
 export const CustomTabs: FC<CustomTabsType> = ({ defaultTab, items }) => {
 	return (
 		<Tabs
+			centered={true}
 			defaultActiveKey={defaultTab}
+			indicator={{ size: 100 }}
 			items={items.map(({ content, icon, key, label }) => {
 				return {
 					children: content,
-					icon: icon && <span style={{ fontSize: "1.8rem" }}>{icon}</span>,
+					icon: icon && <span style={{ fontSize: "1.875rem" }}>{icon}</span>,
 					key,
 					label,
 				};
 			})}
+			tabBarGutter={80}
 		/>
 	);
 };

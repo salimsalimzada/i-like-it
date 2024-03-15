@@ -2,9 +2,10 @@ import { Collapse, CollapseProps } from "antd";
 import { useState } from "react";
 import { TiArrowDown, TiArrowRight } from "react-icons/ti";
 
-import { SmileyPosition } from ".././SmileyPosition";
-import { StrokeColor } from ".././StrokeColor";
-import { StrokePosition } from ".././StrokePosition";
+import { SmileyPosition } from "~/Modules/Feedback/Elements/SmileyPosition";
+import { StrokeColor } from "~/Modules/Feedback/Elements/StrokeColor";
+import { StrokePosition } from "~/Modules/Feedback/Elements/StrokePosition";
+
 import styles from "./AdvancedSettings.module.css";
 
 export const AdvancedSettings = () => {

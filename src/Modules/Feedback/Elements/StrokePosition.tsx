@@ -1,9 +1,10 @@
 import { cloneDeep } from "lodash";
 import { useEffect, useState } from "react";
 
-import { CustomDivider } from "../../../Components";
-import { feedBackStore } from "../../../Stores/feedbackStore";
-import { useStore } from "../../../Stores/store";
+import { CustomDivider } from "~/Components";
+import { feedBackStore } from "~/Stores/feedbackStore";
+import { useStore } from "~/Stores/store";
+
 import {
 	getFirstArrayElementFromStore,
 	getKeyFromStore,
@@ -15,7 +16,6 @@ export const StrokePosition = () => {
 
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
 	const data = getObjectWithWatchModeTrueProperty(feedbackStateList);
-	console.log(data, "data");
 	const [defaultStrokePosition, setDefaultStrokePosition] =
 		useState("borderLeft");
 	const handleStrokePositionChange = (position: string) => {

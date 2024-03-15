@@ -1,7 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
 import { CiCirclePlus } from "react-icons/ci";
 
-import { CustomButton, CustomDivider } from "../../../../Components";
+import { CustomButton, CustomDivider } from "~/Components";
 
 export const MultiLanguages = () => {
 	return (

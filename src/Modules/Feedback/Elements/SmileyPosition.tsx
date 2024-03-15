@@ -1,9 +1,10 @@
 import { cloneDeep } from "lodash";
 import { useEffect, useState } from "react";
 
-import { CustomDivider } from "../../../Components";
-import { feedBackStore } from "../../../Stores/feedbackStore";
-import { useStore } from "../../../Stores/store";
+import { CustomDivider } from "~/Components";
+import { feedBackStore } from "~/Stores/feedbackStore";
+import { useStore } from "~/Stores/store";
+
 import {
 	getFirstArrayElementFromStore,
 	getKeyFromStore,
@@ -11,14 +12,13 @@ import {
 } from "../helpers";
 
 export const SmileyPosition = () => {
+	const [defaultSmileyPosition, setDefaultSmileyPosition] = useState("");
 	const [feedbackState, setFeedbackState] = useStore(feedBackStore);
 
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
 	const data = getObjectWithWatchModeTrueProperty(feedbackStateList);
 
-	const [defaultSmileyPosition, setDefaultSmileyPosition] = useState("");
 	const handleSmileyPositionChange = (position: string) => {
-		console.log(position, "position");
 		setDefaultSmileyPosition(position);
 		const [key] = getKeyFromStore(feedbackState);
 		const modifiedLabelList = cloneDeep(feedbackStateList)?.map((item) => {

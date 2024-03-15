@@ -1,16 +1,16 @@
 import { Empty } from "antd";
 import { Fragment } from "react/jsx-runtime";
 
-import { feedBackStore } from "../../../../Stores/feedbackStore";
-import { useStoreValue } from "../../../../Stores/store";
-import { AdvancedSettings } from "../../Elements/AdvancedSettings";
-import { MarkPages } from "../../Elements/MarkPages";
-import { RateLabels } from "../../Elements/RateLabels";
-import { RateOptions } from "../../Elements/RateOptions";
+import { AdvancedSettings } from "~/Modules/Feedback/Elements/AdvancedSettings";
+import { MarkPages } from "~/Modules/Feedback/Elements/MarkPages";
+import { RateLabels } from "~/Modules/Feedback/Elements/RateLabels";
+import { RateOptions } from "~/Modules/Feedback/Elements/RateOptions";
 import {
 	getFirstArrayElementFromStore,
 	getObjectWithWatchModeTrueProperty,
-} from "../../helpers";
+} from "~/Modules/Feedback/helpers";
+import { feedBackStore } from "~/Stores/feedbackStore";
+import { useStoreValue } from "~/Stores/store";
 
 export const CustomFunctionality = () => {
 	const store = useStoreValue(feedBackStore);
