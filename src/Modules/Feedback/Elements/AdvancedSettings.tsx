@@ -2,6 +2,7 @@ import { Collapse, CollapseProps } from "antd";
 
 import { CustomDivider } from "../../../Components";
 import { SmileyPosition } from "./SmileyPosition";
+import { StrokeColor } from "./StrokeColor";
 import { StrokePosition } from "./StrokePosition";
 
 const items: CollapseProps["items"] = [
@@ -9,6 +10,7 @@ const items: CollapseProps["items"] = [
 		children: (
 			<>
 				<SmileyPosition />
+				<StrokeColor />
 				<StrokePosition />
 			</>
 		),
@@ -21,7 +23,7 @@ export const AdvancedSettings = () => {
 	return (
 		<>
 			<CustomDivider>
-				<Collapse expandIconPosition="right" ghost items={items} />
+				<Collapse expandIconPosition="end" ghost items={items} />
 			</CustomDivider>
 		</>
 	);

@@ -61,7 +61,10 @@ export const SmileyPosition = () => {
 						key={index}
 						onClick={() => handleSmileyPositionChange(item.label)}
 						style={{
-							color: defaultSmileyPosition === item.label ? "blue" : "gray",
+							color:
+								defaultSmileyPosition === item.label
+									? data.defaultProps.defaultColor
+									: "gray",
 							cursor: "pointer",
 							fontSize: "1.375rem",
 						}}

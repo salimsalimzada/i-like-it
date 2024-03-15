@@ -15,7 +15,7 @@ export const StrokePosition = () => {
 
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
 	const data = getObjectWithWatchModeTrueProperty(feedbackStateList);
-
+	console.log(data, "data");
 	const [defaultStrokePosition, setDefaultStrokePosition] =
 		useState("borderLeft");
 	const handleStrokePositionChange = (position: string) => {
@@ -61,7 +61,10 @@ export const StrokePosition = () => {
 						key={index}
 						onClick={() => handleStrokePositionChange(item.label)}
 						style={{
-							color: defaultStrokePosition === item.label ? "blue" : "gray",
+							color:
+								defaultStrokePosition === item.label
+									? data.defaultProps.defaultColor
+									: "gray",
 							cursor: "pointer",
 							fontSize: "2.5rem",
 						}}

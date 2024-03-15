@@ -96,7 +96,7 @@ export const CardItem: FC<
 					<Card
 						className={`${styles.cardItem}  ${!(defaultSmileyPosition === "space-between") && styles[defaultSmileyPosition ?? ""]}  `}
 						style={{
-							[`${defaultStrokePosition}`]: `5px solid blue`,
+							[`${defaultStrokePosition}`]: `5px solid ${defaultProps?.defaultColor}`,
 						}}
 						type="inner"
 					>
@@ -108,7 +108,7 @@ export const CardItem: FC<
 									style={{
 										color:
 											selectedIconKey === item.key
-												? "blue"
+												? defaultProps?.defaultColor
 												: "rgb(129, 127, 127)",
 									}}
 								>

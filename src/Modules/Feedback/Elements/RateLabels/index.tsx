@@ -72,8 +72,8 @@ export const RateLabels = () => {
 					<Switch defaultChecked />
 				</div>
 				<div className={styles.inputWrapper}>
-					{labels?.map((item) => (
-						<Space.Compact size="large">
+					{labels?.map((item, index) => (
+						<Space.Compact key={index} size="large">
 							<Input
 								addonBefore={<item.icon color="#878484" size={23} />}
 								className={styles.inputField}

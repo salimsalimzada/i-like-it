@@ -20,17 +20,23 @@ export type SmileyPositionType = {
 	label: string;
 };
 
+export type StrokeColorType = {
+	label: string;
+	value: string;
+};
+
 export type RateOptionsKeys = "1" | "2" | "3" | "4";
 
 export type RateOptionsType = Record<RateOptionsKeys, EmojiAndLabelType[]>;
 
 export type SmileyRatingDefaultPropsType = {
-	color: string;
+	defaultColor: string;
 	defaultRateValue: string;
 	defaultSmileyPosition: string;
 	defaultStrokePosition: string;
 	rateOptions: RateOptionsType;
 	smileyPosition: SmileyPositionType[];
+	strokeColors: StrokeColorType[];
 	strokePosition: StrokePositionType[];
 	watchMode: boolean;
 };

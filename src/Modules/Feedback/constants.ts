@@ -30,7 +30,7 @@ import { v4 as uuidv4 } from "uuid";
 export const QUESTION_TYPE_LIST = [
 	{
 		defaultProps: {
-			color: "rgb(23, 53, 162)",
+			defaultColor: "#007bff",
 			defaultRateValue: "1",
 			defaultSmileyPosition: "space-between",
 			defaultStrokePosition: "borderLeft",
@@ -72,6 +72,16 @@ export const QUESTION_TYPE_LIST = [
 					icon: FaAlignRight,
 					label: "right",
 				},
+			],
+			strokeColors: [
+				{ label: "blue", value: "#007bff" },
+				{ label: "green", value: "#28a745" },
+				{ label: "red", value: "#dc3545" },
+				{ label: "yellow", value: "#ffc107" },
+				{ label: "cyan", value: "#17a2b8" },
+				{ label: "purple", value: "#6610f2" },
+				{ label: "orange", value: "#fd7e14" },
+				{ label: "custom", value: "" },
 			],
 			strokePosition: [
 				{ icon: MdBorderAll, label: "border" },
