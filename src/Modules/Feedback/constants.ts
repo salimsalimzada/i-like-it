@@ -32,7 +32,7 @@ export const QUESTION_TYPE_LIST = [
 		defaultProps: {
 			defaultColor: "#007bff",
 			defaultRateValue: "1",
-			defaultSmileyPosition: "space-between",
+			defaultSmileyPosition: "center",
 			defaultStrokePosition: "borderLeft",
 			rateOptions: {
 				"1": [

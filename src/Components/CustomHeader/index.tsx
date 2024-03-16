@@ -22,11 +22,7 @@ export const CustomHeader = () => {
 	return (
 		<Fragment>
 			<Header className={styles.headerContainer}>
-				<Row
-					align="middle"
-					className={styles.rowContaier}
-					justify="space-between"
-				>
+				<Row className={styles.rowContaier} justify="space-between">
 					<Col md={6} sm={6} xl={5}>
 						<div className={styles.topLeftBarContent}>
 							<p>

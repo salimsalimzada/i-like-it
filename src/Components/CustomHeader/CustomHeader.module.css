@@ -5,6 +5,10 @@
 	padding: 0;
 }
 
+.rowContaier {
+	align-items: baseline;
+}
+
 .topLeftBarContent > p {
 	font-size: 1.225rem;
 	font-weight: 500;
@@ -46,7 +50,7 @@
 
 .topRightBarContent {
 	display: flex;
-	align-items: center;
+	align-items: baseline;
 	justify-content: space-between;
 }
 
@@ -64,11 +68,14 @@
 	.navWrapper {
 		display: none;
 	}
+
 	.topRightBarContent > button {
 		flex-basis: 23%;
 		font-size: 0.75rem;
 		line-height: 0.8rem;
-		min-height: 2rem;
+		min-height: 1rem;
+		padding: 0 0.5rem;
+		margin-right: 0.2rem;
 	}
 }
 

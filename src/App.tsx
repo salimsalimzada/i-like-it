@@ -61,7 +61,7 @@ function App() {
 	return (
 		<Fragment>
 			<ErrorBoundary>
-				<Layout>
+				<Layout style={{ height: "100%", width: "100%" }}>
 					<CustomHeader />
 					<Row gutter={[16, 24]} justify="center" style={{ height: "100vh" }}>
 						<DragDropContext onDragEnd={operations.onDragEnd}>

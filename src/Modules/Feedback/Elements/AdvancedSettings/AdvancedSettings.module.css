@@ -4,12 +4,6 @@
 	text-transform: uppercase;
 }
 
-.labelWrapper::before,
-.labelWrapper::after {
-	content: "";
-	border-block-start: 3px solid red;
-}
-
 .label {
 	font-size: 0.975rem;
 }

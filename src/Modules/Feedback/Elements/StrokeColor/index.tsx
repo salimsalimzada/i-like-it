@@ -18,7 +18,7 @@ export const StrokeColor = () => {
 
 	const feedbackStateList = getFirstArrayElementFromStore(feedbackState);
 	const data = getObjectWithWatchModeTrueProperty(feedbackStateList);
-	const [defaultColor, setDefaultColor] = useState("#007bff");
+	const [defaultColor, setDefaultColor] = useState("");
 	const handleStrokecolorChange = (color: string) => {
 		setDefaultColor(color);
 		const [key] = getKeyFromStore(feedbackState);
